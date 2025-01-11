@@ -10,6 +10,8 @@ git config --global user.email "5520326+astarrywonder@users.noreply.github.com"
 # setup basic folders
 mkdir -p $HOME/.local/bin
 mkdir -p $HOME/.config
+mkdir -p $HOME/project
+mkdir -p $HOME/project/love2d
 
 # link shell config
 mv $HOME/.zshrc $HOME/backup/$DATE/
@@ -23,6 +25,7 @@ ln -sf $HOME/.dotfile/config/alacritty/.alacritty.toml $HOME/
 mv $HOME/.tmux.conf $HOME/backup/$DATE/
 mv $HOME/.local/bin/tmux-sessionizer $HOME/backup/$DATE/
 ln -sf $HOME/.dotfile/config/tmux/.tmux.conf $HOME/
+sudo chmod u+x $HOME/.local/bin/tmux-sessionizer
 ln -sf $HOME/.dotfile/config/tmux/tmux-sessionizer $HOME/.local/bin/
 
 # link neovim config

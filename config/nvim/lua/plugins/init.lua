@@ -1,4 +1,5 @@
 return {
+	{ import = "plugins.coding" },
 	{ import = "plugins.formatter" },
 	{ import = "plugins.lint" },
 	{ import = "plugins.lsp" },

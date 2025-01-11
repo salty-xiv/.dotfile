@@ -15,8 +15,13 @@
     # ./os-config/virutalbox.nix
     ./os-config/flex.nix
   ];
+
+  networking.hostName = "nixos"; # Define your hostname.
+  # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+
   # Enable networking
   networking.networkmanager.enable = true;
+  # services.resolved.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -139,8 +144,8 @@
     luajitPackages.luacheck
 
     # formatter
-    # stylua
-    luaformatter
+    stylua
+    # luaformatter
     nixfmt-rfc-style
   ];
 
