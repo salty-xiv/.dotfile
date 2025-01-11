@@ -127,9 +127,11 @@
     fd
     alacritty
     neovim
+    xorg.xrandr
 
     # programs
     brave
+    ranger
 
     # code
     love

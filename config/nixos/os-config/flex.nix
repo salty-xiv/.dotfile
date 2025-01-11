@@ -13,4 +13,6 @@
   # Swap caplock with esc only for flex
   services.xserver.xkb.options = "caps:swapescape";
   console.useXkbConfig = true;
+
+  networking.networkmanager.wifi.powersave = false;
 }
