@@ -1,5 +1,5 @@
 #/usr/bin/env bash
-DATE = $(date +%F_%H-%M-%S)
+export DATE = $(date +%F_%H-%M-%S)
 
 mkdir -p $HOME/backup/$DATE
 

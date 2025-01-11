@@ -64,6 +64,4 @@ Clone repo
 ```bash
 cd ~/
 git clone git@github.com:salty-xiv/.dotfile.git
-cd ~/.dotfile
-git checkout nixos-vb
 ```
