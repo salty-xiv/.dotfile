@@ -33,10 +33,10 @@ map("n", "n", "nzzzv", "Search next")
 map("n", "N", "Nzzzv", "Search Previous")
 
 -- Better window navigation
-map("n", "<C-h>", "<C-w><C-h>", "Navigate windows to the left")
-map("n", "<C-j>", "<C-w><C-j>", "Navigate windows down")
-map("n", "<C-k>", "<C-w><C-k>", "Navigate windows up")
-map("n", "<C-l>", "<C-w><C-l>", "Navigate windows to the right")
+-- map("n", "<C-S-h>", "<C-w><C-h>", "Navigate windows to the left")
+-- map("n", "<C-S-j>", "<C-w><C-j>", "Navigate windows down")
+-- map("n", "<C-S-k>", "<C-w><C-k>", "Navigate windows up")
+-- map("n", "<C-S-l>", "<C-w><C-l>", "Navigate windows to the right")
 
 -- Navigate buffers
 map("n", "<S-l>", ":bnext<CR>")
@@ -77,7 +77,7 @@ map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", "Allow Tmux swi
 map("n", "<leader>mf", vim.lsp.buf.format, "Format")
 
 -- quick fix -- IDR what this does
-map("n", "<C-k>", "<cmd>cnext<CR>zz")
-map("n", "<C-j>", "<cmd>cprev<CR>zz")
+map("n", "<C-n>", "<cmd>cnext<CR>zz")
+map("n", "<C-m>", "<cmd>cprev<CR>zz")
 map("n", "<leader>k", "<cmd>lnext<CR>zz")
 map("n", "<leader>j", "<cmd>lprev<CR>zz")

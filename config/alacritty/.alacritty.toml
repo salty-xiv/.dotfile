@@ -175,7 +175,10 @@
     # size = <float>
     #   Font size in points.
     # Default: 11.25
-    size=12
+    # laptop
+    # size=12
+    # vb
+    size=16
 
     # offset = { x = <integer>, y = <integer> }
     #   Offset is the extra space around each character. y can be thought of as modifying the line spacing, and x as modifying

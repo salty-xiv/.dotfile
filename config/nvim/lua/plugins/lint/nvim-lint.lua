@@ -1,4 +1,3 @@
--- luacheck: ignore vim
 local plug = { "mfussenegger/nvim-lint" }
 
 function plug.init()
@@ -14,14 +13,14 @@ function plug.init()
 		lint.try_lint()
 	end, { desc = "Trigger linting for current file" })
 
-	local phpcs = require("lint").linters.luacheck
-	phpcs.args = { "--formatter", "plain", "--codes", "--ranges", "--std love", "-" }
+	-- local phpcs = require("lint").linters.luacheck
+	-- phpcs.args = { "--formatter", "plain", "--codes", "--ranges", "--std love", "-" }
 end
 
 function plug.config()
 	local lint = require("lint")
 	lint.linters_by_ft = {
-		lua = { "luacheck" },
+		-- lua = { "luacheck" },
 		-- markdown = { "vale" },
 		-- javascript = { "eslint_d" },
 		-- typescript = { "eslint_d" },

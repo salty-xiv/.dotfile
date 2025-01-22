@@ -1,5 +1,6 @@
 local plug = {
 	"S1M0N38/love2d.nvim",
+	lazy = false,
 	cmd = "LoveRun",
 	opts = {},
 	keys = {

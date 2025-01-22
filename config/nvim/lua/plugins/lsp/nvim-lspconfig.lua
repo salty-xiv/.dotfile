@@ -11,6 +11,8 @@ plug.init = function()
 	vim.opt.signcolumn = "yes"
 
 	local lspconfig = require("lspconfig")
+	local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 	lspconfig.lua_ls.setup({
 		on_init = function(client)
 			if client.workspace_folders then
@@ -31,20 +33,24 @@ plug.init = function()
 					checkThirdParty = false,
 					library = {
 						vim.env.VIMRUNTIME,
+						"${3rd}/love2d/library",
+
 						-- Depending on the usage, you might want to add additional paths here.
 						-- "${3rd}/luv/library"
 						-- "${3rd}/busted/library",
 					}, -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
 					-- library = vim.api.nvim_get_runtime_file("", true)
 				},
+				telemetry = { enable = false },
+				diagnostics = {
+					globals = { "vim", "table", "love" },
+					disable = { "lowercase-global", "duplicate-set-field" },
+				},
+				capabilities = lsp_capabilities,
 			})
 		end,
 		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { "love" },
-				},
-			},
+			Lua = {},
 		},
 	})
 end

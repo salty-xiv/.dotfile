@@ -12,8 +12,8 @@
 {
   imports = [
     ./hardware-configuration.nix
-    # ./os-config/virutalbox.nix
-    ./os-config/flex.nix
+    ./os-config/virutalbox.nix
+    # ./os-config/flex.nix
   ];
 
   networking.hostName = "nixos"; # Define your hostname.
