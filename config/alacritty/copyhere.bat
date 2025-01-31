@@ -1,0 +1,1 @@
+copy %userprofile%\AppData\Roaming\alacritty\alacritty.toml .\.alacritty.toml

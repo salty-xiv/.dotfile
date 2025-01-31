@@ -15,21 +15,20 @@
 [general]
     # import = ["<string>",]
     #   Import additional configuration files.
-    #   Imports are loaded in order, skipping all missing files, with the importing file being loaded last. If a field is
-    #   already present in a previous import, it will be replaced. All imports must either be absolute paths starting with
+    #   Imports are loaded in order, skipping all missing files, with the importing file being loaded last. If a field is 
+    #   already present in a previous import, it will be replaced. All imports must either be absolute paths starting with 
     #   /, paths relative to the user's home directory starting with ~/, or paths relative from the current config file.
 
     # working_directory = "<string>" | "None"
-    #   Directory the shell is started in. When this is unset, or "None", the working directory of the parent process will be
+    #   Directory the shell is started in. When this is unset, or "None", the working directory of the parent process will be 
     #   used.
     # Default: "None"
-    # working_directory="C:\\Users\\salty\\OneDrive\\Documents\\aac-docs\\Workspace\\git\\.dotfile"
-    # working_directory = "$HOME/.dotfile"
+    working_directory="C:\\Users\\salty\\OneDrive\\Documents\\aac-docs\\Workspace"
 
     # live_config_reload = true | false
     #   Live config reload (changes require restart)
     # Default: true
-    # live_config_reload=true
+    live_config_reload=true
 
     # ipc_socket = true | false # (unix only)
     #   Offer IPC using alacritty msg
@@ -39,11 +38,11 @@
 # * env
 # ********************
 [env]
-    # All key-value pairs in the [env] section will be added as environment variables for any process spawned by Alacritty,
+    # All key-value pairs in the [env] section will be added as environment variables for any process spawned by Alacritty, 
     # including its shell. Some entries may override variables set by alacritty itself.
     # Example:
     #   [env]
-    #   WINIT_X11_SCALE_FACTO = "1.0"
+    #   WINIT_X11_SCALE_FACTOR = "1.0"
 
 # ********************
 # * window
@@ -51,24 +50,24 @@
 [window]
     # dimensions = { columns = <integer>, lines = <integer> }
     #   Window dimensions (changes require restart).
-    #   Number of lines/columns (not pixels) in the terminal. Both lines and columns must be non-zero for this to take effect.
-    #   The number of columns must be at least 2, while using a value of 0 for columns and lines will fall back to the window
+    #   Number of lines/columns (not pixels) in the terminal. Both lines and columns must be non-zero for this to take effect. 
+    #   The number of columns must be at least 2, while using a value of 0 for columns and lines will fall back to the window 
     #   manager's recommended size
     # Default: { columns = 0, lines = 0 }
-    # dimensions={columns=140, lines=48}
+    dimensions={columns=120, lines=48}
 
     # position = "None" | { x = <integer>, y = <integer> } # (has no effect on Wayland)
     #   Window startup position.
     #   Specified in number of pixels.
     #   If the position is "None", the window manager will handle placement.
     # Default: "None"
-    # position="None"
+    position="None"
 
     # padding = { x = <integer>, y = <integer> }
     #   Blank space added around the window in pixels. This padding is scaled by DPI and the specified value is always added
     #   at both opposing sides.
     # Default: { x = 0, y = 0 }
-    # padding={x=2, y=2}
+    padding={x=2, y=2}
 
     # dynamic_padding = true | false
     #   Spread additional padding evenly around the terminal content.
@@ -81,18 +80,18 @@
     #       Transparent (macOS only) - Title bar, transparent background and title bar buttons.
     #       Buttonless (macOS only) - Title bar, transparent background and no title bar buttons.
     # Default: "Full"
-    # decorations="Full"
+    decorations="Full"
 
     # opacity = <float>
-    #   Background opacity as a floating point number from 0.0 to 1.0. The value 0.0 is completely transparent and 1.0 is
+    #   Background opacity as a floating point number from 0.0 to 1.0. The value 0.0 is completely transparent and 1.0 is 
     #   opaque.
     # Default: 1.0
-    # opacity=0.96
+    opacity=0.96
 
     # blur = true | false # (works on macOS/KDE Wayland)
     #   Request compositor to blur content behind transparent windows.
     # Default: false
-    # blur=true
+    blur=true
 
     # startup_mode = "Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"
     #   Startup mode (changes require restart)
@@ -101,28 +100,28 @@
     #       Fullscreen - The window will be fullscreened on startup.
     #       SimpleFullscreen (macOS only) - Same as Fullscreen, but you can stack windows on top.
     # Default: "Windowed"
-    # startup_mode="Windowed"
+    startup_mode="Windowed"
 
     # title = "<string>"
     #   Window title.
     # Default: "Alacritty"
-    # title=""
+    title=""
 
     # dynamic_title = true | false
     #   Allow terminal applications to change Alacritty's window title.
     # Default: true
-    # dynamic_title=false
+    dynamic_title=false
 
     # class = { instance = "<string>", general = "<string>" } # (Linux/BSD only)
-    #   Window class.
+    #   Window class. 
     #   On Wayland, general is used as app_id and instance is ignored.
     # Default: { instance = "Alacritty", general = "Alacritty" }
 
     # decorations_theme_variant = "Dark" | "Light" | "None"
-    #   Override the variant of the System theme/GTK theme/Wayland client side decorations. Set this to "None" to use the
+    #   Override the variant of the System theme/GTK theme/Wayland client side decorations. Set this to "None" to use the 
     #   system's default theme variant.
     # Default: "None"
-    # decorations_theme_variant="Dark"
+    decorations_theme_variant="Dark"
 
     # resize_increments = true | false # (works on macOS/X11)
     #   Prefer resizing window by discrete steps equal to cell dimensions.
@@ -151,14 +150,12 @@
 # ********************
 [font]
     # Default:
-      # Linux/BSD: { family = "monospace", style = "Regular" }
+    #   Linux/BSD: { family = "monospace", style = "Regular" }
     #   Windows: { family = "Consolas", style = "Regular" }
     #   macOS: { family = "Menlo", style = "Regular" }
     #   normal = { family = "<string>", style = "<string>" }
     # normal = { family = "Cascadia Code", style = "Regular" } // included on windows 11
-    # normal={family="SeriousShanns Nerd Font Mono", style="Regular"}
-    normal={family="Serious Sans", style="Regular"}
-    # normal={family="monospace", style="Regular"}
+    normal={family="SeriousShanns Nerd Font Mono", style="Regular"}
 
     # bold = { family = "<string>", style = "<string>" }
     #   If the family is not specified, it will fall back to the value specified for the normal font.
@@ -175,22 +172,19 @@
     # size = <float>
     #   Font size in points.
     # Default: 11.25
-    # laptop
-    # size=12
-    # vb
-    size=16
+    size=14
 
     # offset = { x = <integer>, y = <integer> }
-    #   Offset is the extra space around each character. y can be thought of as modifying the line spacing, and x as modifying
+    #   Offset is the extra space around each character. y can be thought of as modifying the line spacing, and x as modifying 
     #   the letter spacing.
     # Default: { x = 0, y = 0 }
 
     # glyph_offset = { x = <integer>, y = <integer> }
-    #   Glyph offset determines the locations of the glyphs within their cells with the default being at the bottom.
+    #   Glyph offset determines the locations of the glyphs within their cells with the default being at the bottom. 
     #   Increasing x moves the glyph to the right, increasing y moves the glyph upward.
 
     # builtin_box_drawing = true | false
-    #   When true, Alacritty will use a custom built-in font for box drawing characters (Unicode points U+2500 - U+259F),
+    #   When true, Alacritty will use a custom built-in font for box drawing characters (Unicode points U+2500 - U+259F), 
     #   legacy computing symbols (U+1FB00 - U+1FB3B), and powerline symbols (U+E0B0 - U+E0B3).
     # Default: true
 
@@ -266,7 +260,7 @@
 # * bell
 # ********************
 [bell]
-    # animation = "Ease" | "EaseOut" | "EaseOutSine" | "EaseOutQuad" | "EaseOutCubic" | "EaseOutQuart" | "EaseOutQuint"
+    # animation = "Ease" | "EaseOut" | "EaseOutSine" | "EaseOutQuad" | "EaseOutCubic" | "EaseOutQuart" | "EaseOutQuint" 
     # | "EaseOutExpo" | "EaseOutCirc" | "Linear"
     #   Visual bell animation effect for flashing the screen when the visual bell is rung.
     # Default: "Linear"
@@ -274,7 +268,7 @@
     # duration = <integer>
     #   Duration of the visual bell flash in milliseconds. A `duration` of `0` will disable the visual bell animation.
     # Default: 0
-    # duration=0
+    duration=0
 
     # color = "<string>"
     #   Visual bell animation color.
@@ -311,7 +305,7 @@
     #     On - Enable blinking by default
     #     Always - Force the cursor to always blink
     #   Default: "Off"
-    # style={shape="Block", blinking="Off"}
+    style={shape="Block", blinking="Off"}
 
     # vi_mode_style = { <shape>, <blinking> } | "None"
     #   If the vi mode cursor style is "None" or not specified, it will fall back to the active value of the normal cursor.
@@ -329,19 +323,19 @@
     # unfocused_hollow = true | false
     #   When this is true, the cursor will be rendered as a hollow box when the window is not focused.
     # Default: true
-    # unfocused_hollow=true
+    unfocused_hollow=true
 
     # thickness = <float>
     #   Thickness of the cursor relative to the cell width as floating point number from 0.0 to 1.0.
     # Default: 0.15
-    # thickness=0.15
+    thickness=0.15
 
 # ********************
 # * terminal
 # ********************
 [terminal]
     # shell = "<string>" | { program = "<string>", args = ["<string>",] }
-    # You can set shell.program to the path of your favorite shell, e.g. /bin/zsh. Entries in shell.args are passed as
+    # You can set shell.program to the path of your favorite shell, e.g. /bin/zsh. Entries in shell.args are passed as 
     # arguments to the shell.
     # Default:
     #   Linux/BSD/macOS: $SHELL or the user's login shell, if $SHELL is unset
@@ -350,11 +344,11 @@
     #   [shell]
     #   program = "/bin/zsh"
     #   args = ["-l"]
-    # shell="/bin/zsh"
+    shell="pwsh"
 
     # osc52 = "Disabled" | "OnlyCopy" | "OnlyPaste" | "CopyPaste"
-    #   Controls the ability to write to the system clipboard with the OSC 52 escape sequence. While this escape sequence is
-    #   useful to copy contents from the remote server, allowing any application to read from the clipboard can be easily
+    #   Controls the ability to write to the system clipboard with the OSC 52 escape sequence. While this escape sequence is 
+    #   useful to copy contents from the remote server, allowing any application to read from the clipboard can be easily 
     #   abused while not providing significant benefits over explicitly pasting text.
     # Default: "OnlyCopy"
 
@@ -368,8 +362,8 @@
 
     # bindings = [{ <mouse>, <mods>, <mode>, <command> | <chars> | <action> },]
     #   See keyboard.bindings for full documentation on mods, mode, command, chars, and action.
-    #   When an application running within Alacritty captures the mouse, the `Shift` modifier can be used to suppress mouse
-    #   reporting. If no action is found for the event, actions for the event without the `Shift` modifier are triggered
+    #   When an application running within Alacritty captures the mouse, the `Shift` modifier can be used to suppress mouse 
+    #   reporting. If no action is found for the event, actions for the event without the `Shift` modifier are triggered 
     #   instead.
     #   mouse = "Middle" | "Left" | "Right" | "Back" | "Forward" | <integer>
     #     Mouse button which needs to be pressed to trigger this binding.
@@ -383,7 +377,7 @@
 # * hints
 # ********************
 [hints]
-    # Terminal hints can be used to find text or hyperlinks in the visible part of the terminal and pipe it to other
+    # Terminal hints can be used to find text or hyperlinks in the visible part of the terminal and pipe it to other 
     # applications.
 
     # alphabet = "<string>"
@@ -398,7 +392,7 @@
     #   hyperlinks = true | false
     #     When this is true, all OSC 8 escape sequence hyperlinks will be included in the hints.
     #   post_processing = true | false
-    #     When this is true, heuristics will be used to shorten the match if there are characters likely not to be part of the
+    #     When this is true, heuristics will be used to shorten the match if there are characters likely not to be part of the 
     #     hint (e.g. a trailing .). This is most useful for URIs and applies only to regex matches.
     #   persist = true | false
     #     When this is true, hints remain persistent after selection.
@@ -436,11 +430,11 @@
     #   To unset a default binding, you can use the action "ReceiveChar" to remove it or "None" to inhibit any action.
     #   Multiple keybindings can be triggered by a single key press and will be executed in the order they are defined in.
     #   key = "<string>"
-    #     The regular keys like "A", "0", and "Я" can be mapped directly without any special syntax. Full list of named keys
+    #     The regular keys like "A", "0", and "Я" can be mapped directly without any special syntax. Full list of named keys 
     #     like "F1" and the syntax for dead keys can be found here:
     #     https://docs.rs/winit/latest/winit/keyboard/enum.NamedKey.html
     #     https://docs.rs/winit/latest/winit/keyboard/enum.Key.html#variant.Dead
-    #     Numpad keys are prefixed by Numpad: "NumpadEnter" | "NumpadAdd" | "NumpadComma" | "NumpadDecimal" | "NumpadDivide"
+    #     Numpad keys are prefixed by Numpad: "NumpadEnter" | "NumpadAdd" | "NumpadComma" | "NumpadDecimal" | "NumpadDivide" 
     #     | "NumpadEquals" | "NumpadSubtract" | "NumpadMultiply" | "Numpad[0-9]".
     #     The key field also supports using scancodes, which are specified as a decimal number.
     #   mods = "Command" | "Control" | "Option" | "Super" | "Shift" | "Alt"
@@ -489,7 +483,7 @@
     #         Right - Move right.
     #         First - First column, or beginning of the line when already at the first column.
     #         Last - Last column, or beginning of the line when already at the last column.
-    #         FirstOccupied - First non-empty cell in this terminal row, or first non-empty cell of the line when already at
+    #         FirstOccupied - First non-empty cell in this terminal row, or first non-empty cell of the line when already at 
     #           the first cell of the row.
     #         High - Move to top of screen.
     #         Middle - Move to center of screen.
@@ -559,7 +553,7 @@
 # * debug
 # ********************
 [debug]
-    # Debug options are meant to help troubleshoot issues with Alacritty. These can change or be removed entirely without
+    # Debug options are meant to help troubleshoot issues with Alacritty. These can change or be removed entirely without 
     # warning, so their stability shouldn't be relied upon.
 
     # render_timer = true | false
