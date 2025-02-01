@@ -1,16 +1,23 @@
 # Github Setup
 
-## Other Commands
+```bash
+sudo aptitude -y install git
+```
+
+Generate new SSH keys
 
 ```bash
-# If needed, Test Connection
+ssh-keygen -t rsa -b 3072 -f ~/.ssh/id_rsa -N ''
+cat ~/.ssh/id_rsa.pub
+```
+
+If needed, Test Connection
+
+```bash
 ssh -T git@github.com
 ```
 
-```bash
-# Generate new SSH keys
-ssh-keygen
-```
+## Other Commands
 
 ```bash
 # If needed, change permission to restricted. git will complain if ssh key is too open
