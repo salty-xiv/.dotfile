@@ -19,8 +19,10 @@ local opts = {
 
 	swapfile = false,
 	backup = false,
-	undodir = os.getenv("HOME") .. "/.vim/undodir",
-	undofile = true,
+	-- Linux
+	-- undodir = os.getenv("HOME") .. "/.vim/undodir",
+	-- undodir = "~/.vim/.undo",
+	undofile = false,
 
 	hlsearch = false,
 	incsearch = true,
@@ -42,6 +44,9 @@ end
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
 
 -- autocmd
 local augroup = vim.api.nvim_create_augroup

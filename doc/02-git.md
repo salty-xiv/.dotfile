@@ -1,9 +1,5 @@
 # Github Setup
 
-```bash
-sudo aptitude -y install git
-```
-
 Generate new SSH keys
 
 ```bash

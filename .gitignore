@@ -437,3 +437,6 @@ $RECYCLE.BIN/
 
 # nixos
 hardware-configuration.nix
+
+# vim
+vimfiles/

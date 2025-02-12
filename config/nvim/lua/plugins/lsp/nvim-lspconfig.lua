@@ -33,7 +33,6 @@ plug.init = function()
 					checkThirdParty = false,
 					library = {
 						vim.env.VIMRUNTIME,
-						"${3rd}/love2d/library",
 
 						-- Depending on the usage, you might want to add additional paths here.
 						-- "${3rd}/luv/library"
@@ -43,8 +42,8 @@ plug.init = function()
 				},
 				telemetry = { enable = false },
 				diagnostics = {
-					globals = { "vim", "table", "love" },
-					disable = { "lowercase-global", "duplicate-set-field" },
+					globals = { "vim" },
+					disable = {},
 				},
 				capabilities = lsp_capabilities,
 			})

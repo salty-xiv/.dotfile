@@ -25,8 +25,8 @@ map("n", "<M-h>", "^", "Go to beginning of line")
 map("n", "<M-l>", "$", "Go to end of line")
 
 -- modifies so half page holds cursor close to middle
-map("n", "<C-d>", "<C-d>zz", "Scroll up")
-map("n", "<C-u>", "<C-u>zz", "Scroll down")
+-- map("n", "<C-d>", "<C-d>zz", "Scroll up")
+-- map("n", "<C-u>", "<C-u>zz", "Scroll down")
 
 -- modifies so searching holds cursor close to middle
 map("n", "n", "nzzzv", "Search next")

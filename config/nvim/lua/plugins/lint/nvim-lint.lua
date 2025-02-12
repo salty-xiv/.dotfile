@@ -20,7 +20,7 @@ end
 function plug.config()
 	local lint = require("lint")
 	lint.linters_by_ft = {
-		-- lua = { "luacheck" },
+		lua = { "luacheck" },
 		-- markdown = { "vale" },
 		-- javascript = { "eslint_d" },
 		-- typescript = { "eslint_d" },
