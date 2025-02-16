@@ -15,16 +15,20 @@ function listdir {
 }
 Set-Alias ll listdir
 
-function neovimhere {
-    nvim .
-}
-Set-Alias v neovimhere
-Set-Alias nvim neovimhere
-
 function dotfile {
     cd $HOME\documents\aac-docs\workspace\git\salty-xiv\.dotfile\
 }
 Set-Alias dot dotfile
+
+function powersh {
+    cd $HOME\documents\PowerShell\
+}
+Set-Alias psh powersh
+
+function alac {
+    cd $HOME\AppData\Roaming\alacritty
+}
+Set-Alias ala alac
 
 # git alias
 function gitstatus {
