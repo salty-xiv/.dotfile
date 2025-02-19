@@ -13,6 +13,8 @@ function plug.config()
 			"rust",
 			"jsdoc",
 			"bash",
+			"powershell",
+			"c_sharp",
 		},
 
 		-- Install parsers synchronously (only applied to `ensure_installed`)

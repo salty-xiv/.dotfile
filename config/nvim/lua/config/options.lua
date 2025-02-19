@@ -34,6 +34,8 @@ local opts = {
 	updatetime = 50,
 
 	colorcolumn = "120",
+
+	clipboard = "unnamedplus",
 }
 
 -- Set options from table

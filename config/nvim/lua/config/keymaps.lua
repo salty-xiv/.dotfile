@@ -71,7 +71,7 @@ map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], "S
 map("n", "<leader>ur", "<cmd>nohl<cr>", "Clear highlights")
 
 -- will allow tmux to switch projects
-map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", "Allow Tmux switch")
+-- map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", "Allow Tmux switch")
 
 -- format text
 map("n", "<leader>mf", vim.lsp.buf.format, "Format")
