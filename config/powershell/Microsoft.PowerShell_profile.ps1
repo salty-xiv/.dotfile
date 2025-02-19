@@ -1,52 +1,28 @@
+# PSReadLine extension to provide VI keybindings
+Set-PSReadlineOption -EditMode vi
 
-# Import the Chocolatey Profile that contains the necessary code to enable
-# tab-completions to function for `choco`.
-# Be aware that if you are missing these lines from your profile, tab completion
-# for `choco` will not function.
-# See https://ch0.co/tab-completion for details.
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-}
+# Bash style completion, AWESOME for completion of paths and directories!!!
+Set-PSReadLineKeyHandler -Key Tab -Function Complete
+Set-PSReadLineKeyHandler -Key Ctrl+r -Function ReverseSearchHistory
+
+# REMOVE gl, so that we can use gl.bat for git pull instead of Get-Location
+Remove-Alias -Force -Name gl
+Remove-Alias -Force -Name gp
+Remove-Alias -Force -Name gm
 
 # Alias
-function listdir {
-    Get-ChildItem -Force
-}
-Set-Alias ll listdir
-
-function dotfile {
-    cd $HOME\documents\aac-docs\workspace\git\salty-xiv\.dotfile\
-}
-Set-Alias dot dotfile
-
-function powersh {
-    cd $HOME\documents\PowerShell\
-}
-Set-Alias psh powersh
-
-function alac {
-    cd $HOME\AppData\Roaming\alacritty
-}
-Set-Alias ala alac
+function ll { Get-ChildItem -Force }
+function dot { cd $HOME\documents\aac-docs\workspace\git\salty-xiv\.dotfile\ }
+function psh { cd $HOME\documents\PowerShell\ }
+function ala { cd $HOME\AppData\Roaming\alacritty }
 
 # git alias
-function gitstatus {
-    git status
-}
-Set-Alias gs gitstatus
+function gs { git status }
+function gd { git diff }
+function gds { git diff --staged }
 
-function gitdiff {
-    git diff
-}
-Set-Alias gd gitdiff
+# oh-my-posh
+oh-my-posh init pwsh --config ~/documents/aac-docs/workspace/git/salty-xiv/.dotfile/config/powershell/salty.omp.json | Invoke-Expression
 
-function gitdiffstaged {
-    git diff --staged
-}
-Set-Alias gds gitdiffstaged
-
-# Need parameter so needs to be a function in powershell :(
-#alias gc="git commit -m"
-#alias ga="git add"
-
+# imports zlocation
+Import-Module ZLocation

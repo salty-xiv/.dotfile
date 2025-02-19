@@ -1,21 +1,21 @@
-local plug = {
-	"ThePrimeagen/refactoring.nvim",
-	dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
-	lazy = false,
-}
+-- local plug = {
+-- 	"ThePrimeagen/refactoring.nvim",
+-- 	dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" },
+-- 	lazy = false,
+-- }
+--
+-- function plug.init()
+-- 	vim.api.nvim_set_keymap(
+-- 		"v",
+-- 		"<leader>ri",
+-- 		[[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
+-- 		{ noremap = true, silent = true, expr = false }
+-- 	)
+-- end
+--
+-- function plug.config()
+-- 	local refactoring = require("refactoring")
+-- 	refactoring.setup({})
+-- end
 
-function plug.init()
-	vim.api.nvim_set_keymap(
-		"v",
-		"<leader>ri",
-		[[ <Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>]],
-		{ noremap = true, silent = true, expr = false }
-	)
-end
-
-function plug.config()
-	local refactoring = require("refactoring")
-	refactoring.setup({})
-end
-
-return plug
+return {}

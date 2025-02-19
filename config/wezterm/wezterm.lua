@@ -56,10 +56,10 @@ config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = true
 config.window_padding = {
-	left = 10,
-	right = 10,
-	top = 10,
-	bottom = 10,
+	left = 5,
+	right = 5,
+	top = 5,
+	bottom = 5,
 }
 config.initial_rows = 40
 config.initial_cols = 125

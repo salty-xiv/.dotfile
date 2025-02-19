@@ -62,6 +62,8 @@ dotnet tool install --global csharpier
 # fix luarocks?
 luarocks config variables.CC gcc
 
+# install ZLocation
+Install-Module ZLocation -Scope CurrentUser
 ```
 
 For roslyn.nvim, a manual download and process is needed due to microsoft tos shenanigans.
