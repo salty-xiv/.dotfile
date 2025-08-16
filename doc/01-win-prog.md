@@ -37,15 +37,25 @@ scoop install main/fzf
 Languages
 
 ```bash
-scoop install main/python
+# Lua
 scoop install main/luarocks main/lua-language-server main/stylua
-# install after luarock since it comes with latest to force version
+#   install after luarock since it comes with latest to force version
 scoop install versions/lua51
+
+# node
 scoop install main/nvm
+
+# dotnet
+scoop install main/netcoredbg
+#   broken in scoop. Revist later. for now manual install.
+#       scoop install main/dotnet-sdk
+#       scoop install versions/dotnet-sdk-lts
+
+# Python
+scoop install main/python
+
+# C
 scoop install main/zig
-# broken in scoop. Revist later. for now manual install.
-# scoop install main/dotnet-sdk
-# scoop install versions/dotnet-sdk-lts
 ```
 
 extra cmds
@@ -58,8 +68,10 @@ npm install -g neovim prettier @fsouza/prettierd
 
 # LSP for dotnet
 dotnet tool install --global csharpier
+dotnet tool install --global dotnet-outdated-tool
+dotnet tool install --global dotnet-ef
 
-# fix luarocks?
+# fixes luarocks?
 luarocks config variables.CC gcc
 
 # install ZLocation
@@ -94,9 +106,11 @@ scoop install extras/brave extras/firefox extras/googlechrome
 scoop install extras/gimp extras/paint.net extras/sharex
 scoop install extras/vlc extras/ytmdesktop
 scoop install extras/discord
-scoop install extras/obs-studio extras/streamdeck
+scoop install extras/obs-studio
 scoop install extras/openoffice extras/calibre
 scoop install nonportable/virtualbox-np
+scoop install main/innounp versions/innounp-unicode
+scoop install extras/telegram
 ```
 
 games
@@ -132,3 +146,5 @@ scoop install extras/keepass extras/keepass-plugin-keepassrpc
 - [Spotify](https://open.spotify.com/)
 - [Synology Drive client](https://www.synology.com/en-global/support/download/DS920+?version=7.2#utilities)
 - [.NET SDK](https://dotnet.microsoft.com/en-us/download)
+- [Affinity](https://affinity.serif.com/en-us/)
+- [Stream Deck](https://www.elgato.com/us/en/s/downloads)

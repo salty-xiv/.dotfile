@@ -1,10 +1,6 @@
 return {
 	{ import = "plugins.coding" },
-	{ import = "plugins.formatter" },
-	{ import = "plugins.lint" },
-	{ import = "plugins.lsp" },
-	-- { import = "plugins.mason" },
-	{ import = "plugins.treesitter" },
+	{ import = "plugins.language" },
 	{ import = "plugins.ui" },
 	{ import = "plugins.util" },
 }

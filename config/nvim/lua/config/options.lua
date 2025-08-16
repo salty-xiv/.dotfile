@@ -29,6 +29,9 @@ local opts = {
 	incsearch = true,
 
 	scrolloff = 8,
+
+	-- Reserve a space in the gutter
+	-- This will avoid an annoying layout shift in the screen
 	signcolumn = "yes",
 
 	updatetime = 50,

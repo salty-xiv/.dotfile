@@ -11,11 +11,8 @@ local plug = {
 		},
 	},
 }
-function plug.init()
-	-- Reserve a space in the gutter
-	-- This will avoid an annoying layout shift in the screen
-	vim.opt.signcolumn = "yes"
 
+function plug.init()
 	local lspconfig = require("lspconfig")
 
 	lspconfig.lua_ls.setup({
