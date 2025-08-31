@@ -9,10 +9,19 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 
+Need git to update scoop
+
+```bash
+scoop install git
+```
+
 adds buckets for repo
 
 ```bash
-scoop bucket add main extras games nonportable versions
+scoop bucket add extras
+scoop bucket add games
+scoop bucket add nonportable
+scoop bucket add versions
 ```
 
 ### Developer
@@ -47,7 +56,7 @@ scoop install main/nvm
 
 # dotnet
 scoop install main/netcoredbg
-#   broken in scoop. Revist later. for now manual install.
+#   broken in scoop. Revist later. for now manual install. see below
 #       scoop install main/dotnet-sdk
 #       scoop install versions/dotnet-sdk-lts
 
