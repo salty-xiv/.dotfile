@@ -12,7 +12,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./os-config/virutalbox.nix
+    # ./os-config/virutalbox.nix
     # ./os-config/flex.nix
   ];
 
