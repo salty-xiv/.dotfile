@@ -8,13 +8,97 @@
 
 ## Configuration setup
 
-Edit config so we have basic access to grab config
+Edit config so we have basic access to sync config
 
 ```bash
 sudo nano /etc/nixos/configuration.nix
 ```
 
-Add vim and git under `environment.systemPackages `.
+Add the follow to the config
+
+```nix
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+  # Enable the XFCE Desktop Environment.
+  services.xserver.windowManager.i3.enable = true;
+  services.displayManager.defaultSession = "none+i3";
+
+  #  Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
+  # Install firefox.
+  programs.firefox.enable = true;
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    serious-sans
+    jetbrains-mono
+  ];
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    # base
+    vim
+    wget
+
+    # windowmanager
+    xorg.xinit
+    i3
+    i3status
+    dmenu
+
+    # tools
+    unzip
+    curl
+    tldr
+    autojump
+    zsh
+    git
+    tmux
+    ripgrep
+    fzf
+    fd
+    alacritty
+    neovim
+    xorg.xrandr
+
+    # programs
+    brave
+    ranger
+
+    # code
+    love
+    gcc14
+    rustup
+    lua51Packages.lua
+
+    # lsp
+    lua-language-server
+
+    # linter
+    luajitPackages.luacheck
+
+    # formatter
+    stylua
+    # luaformatter
+    nixfmt-rfc-style
+  ];
+
+  # Shell
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
+  # Neovim
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+```
 
 ```bash
 # then rebuild nix
