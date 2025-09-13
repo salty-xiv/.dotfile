@@ -1,7 +1,7 @@
 # Run Provision.sh
 
 ```bash
-cd ~/.dotfile
+cd ~/.dotfile/doc/nixos
 
 sudo chmod u+x provision-config.sh
 ./provision-config.sh
