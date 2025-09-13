@@ -8,6 +8,13 @@
 
 ## Configuration setup
 
+Add nixos-hardware so that the hardware is configured correctly
+
+```bash
+sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+sudo nix-channel --update
+```
+
 Edit config so we have basic access to sync config
 
 ```bash
@@ -15,6 +22,19 @@ sudo nano /etc/nixos/configuration.nix
 ```
 
 Add the follow to the config
+
+```nix
+imports = [
+```
+
+```nix
+  <nixos-hardware/lenovo/thinkpad/t480>
+```
+
+```nix
+  ./hardware-configuration.nix
+];
+```
 
 ```nix
   # Enable the XFCE Desktop Environment.
