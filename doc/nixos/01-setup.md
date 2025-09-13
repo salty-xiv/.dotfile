@@ -17,31 +17,22 @@ sudo nano /etc/nixos/configuration.nix
 Add the follow to the config
 
 ```nix
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   # Enable the XFCE Desktop Environment.
   services.xserver.windowManager.i3.enable = true;
   services.displayManager.defaultSession = "none+i3";
 
-  #  Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
   # Fonts
   fonts.packages = with pkgs; [
-    serious-sans
+    nerd-fonts.comic-shanns-mono
     jetbrains-mono
   ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+```
+
+```nix
     # base
     vim
     wget
@@ -87,6 +78,9 @@ Add the follow to the config
     stylua
     # luaformatter
     nixfmt-rfc-style
+```
+
+```nix
   ];
 
   # Shell
