@@ -46,7 +46,9 @@ imports = [
     nerd-fonts.comic-shanns-mono
     jetbrains-mono
   ];
+```
 
+```nix
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -102,7 +104,9 @@ imports = [
 
 ```nix
   ];
+```
 
+```nix
   # Shell
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
@@ -114,8 +118,9 @@ imports = [
   };
 ```
 
+Then rebuild nix
+
 ```bash
-# then rebuild nix
 sudo nixos-rebuild switch
 ```
 
@@ -134,8 +139,7 @@ cd ~/
 git clone git@github.com:salty-xiv/.dotfile.git
 ```
 
-## Deprecated
-
+<!-- ## Deprecated -->
 <!-- ## virtualBox Setup -->
 
 <!-- 1. Install Virtualbox program -->
