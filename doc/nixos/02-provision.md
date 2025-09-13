@@ -5,12 +5,10 @@ export DATE=$(date +%F_%H-%M-%S)
 mkdir -p $HOME/backup/$DATE
 ```
 
-```bash
-sudo mv /etc/nixos/configuration.nix $HOME/backup/$DATE/
-sudo cp $HOME/.dotfile/config/nixos/configuration.nix $HOME/backup/$DATE/
-```
+Copy config instead of soft link since configuration needs to change based on hardware or vb
 
 ```bash
+sudo cp $HOME/.dotfile/config/nixos/configuration.nix $HOME/backup/$DATE/
 sudo cp $HOME/.dotfile/config/nixos/configuration.nix $HOME/.dotfile/config/nixos/configuration.nix
 ```
 
