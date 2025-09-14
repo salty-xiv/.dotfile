@@ -20,9 +20,9 @@ local opts = {
 	swapfile = false,
 	backup = false,
 	-- Linux
-	-- undodir = os.getenv("HOME") .. "/.vim/undodir",
+	undodir = os.getenv("HOME") .. "/.vim/undodir",
 	-- Windows
-	undodir = os.getenv("USERPROFILE") .. "/.vim/undodir",
+	-- undodir = os.getenv("USERPROFILE") .. "/.vim/undodir",
 	undofile = true,
 
 	hlsearch = false,

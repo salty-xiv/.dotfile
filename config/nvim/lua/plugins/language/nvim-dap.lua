@@ -3,11 +3,12 @@ local plug = { "mfussenegger/nvim-dap" }
 function plug.config()
 	local dap = require("dap")
 
-	dap.adapters.coreclr = {
-		type = "executable",
-		command = os.getenv("USERPROFILE") .. "/scoop/apps/netcoredbg/current/netcoredbg.exe",
-		args = { "--interpreter=vscode" },
-	}
+	-- Windows
+	-- dap.adapters.coreclr = {
+	-- 	type = "executable",
+	-- 	command = os.getenv("USERPROFILE") .. "/scoop/apps/netcoredbg/current/netcoredbg.exe",
+	-- 	args = { "--interpreter=vscode" },
+	-- }
 	dap.configurations.cs = {
 		{
 			type = "coreclr",

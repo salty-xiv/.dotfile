@@ -13,7 +13,8 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 12
+# font pango:monospace 16
+font pango:ComicShannsMono Nerd Font Propo,monospace 18
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -115,10 +116,10 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:alacritty"
-# set $ws2 "2:love2d"
-set $ws3 "3:third"
-set $ws4 "4:web"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -213,6 +214,7 @@ gaps inner 4px
 
 # Start feh to have a background image
 # exec_always --no-startup-id feh --bg-scale ~/.dotfile/assets/images/Untitled.png
+
 # exec --no-startup-id i3-msg 'workspace 2; exec alacritty'
 # exec --no-startup-id i3-msg 'workspace 1; exec alacritty'
 
