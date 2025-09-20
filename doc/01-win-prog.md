@@ -127,6 +127,7 @@ games
 ```bash
 scoop install games/goggalaxy games/steam games/xivlauncher
 scoop install games/advanced-combat-tracker
+scoop install games/prismlauncher
 ```
 
 Need admin
