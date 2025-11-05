@@ -105,10 +105,20 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enable the XFCE Desktop Environment.
+  # Enable the i3 Desktop Environment.
   services.xserver.windowManager.i3.enable = true;
   services.displayManager.defaultSession = "none+i3";
 
+  # Enable the hyperland Desktop Environment.
+  # programs.hyprland = {
+  #   enable = true;
+  #   withUWSM = true;
+  #   xwayland.enable = true;
+  # };
+  # programs.xwayland.enable = true;
+  # security.polkit.enable = true;
+
+  
   # Enable bluetooth gui
   services.blueman.enable = true;
 
@@ -131,6 +141,7 @@
     i3status
     dmenu
     brightnessctl
+    kitty
 
     # tools
     unzip
@@ -174,9 +185,9 @@
     gimp3 # photo edit
     pinta # paint net alt
     libreoffice # office
+    parsec-bin # remote desktop
 
     # game
-    xivlauncher
 
     # TODO
     # python? 

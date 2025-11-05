@@ -8,6 +8,8 @@
 
 ## Configuration setup
 
+### nixos-hardware
+
 Add nixos-hardware so that the hardware is configured correctly
 
 ```bash
@@ -36,20 +38,10 @@ imports = [
 ];
 ```
 
-```nix
-  # Enable the XFCE Desktop Environment.
-  services.xserver.windowManager.i3.enable = true;
-  services.displayManager.defaultSession = "none+i3";
+### Configuration
 
-  # Enable bluetooth gui
-  services.blueman.enable = true;
+Add the follow to the config
 
-  # Fonts
-  fonts.packages = with pkgs; [
-    nerd-fonts.comic-shanns-mono
-    jetbrains-mono
-  ];
-```
 
 ```nix
   # List packages installed in system profile. To search, run:
@@ -115,6 +107,19 @@ imports = [
 ```
 
 ```nix
+  # Enable the XFCE Desktop Environment.
+  services.xserver.windowManager.i3.enable = true;
+  services.displayManager.defaultSession = "none+i3";
+
+  # Enable bluetooth gui
+  services.blueman.enable = true;
+
+  # Fonts
+  fonts.packages = with pkgs; [
+    nerd-fonts.comic-shanns-mono
+    jetbrains-mono
+  ];
+
   # Shell
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
