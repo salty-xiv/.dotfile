@@ -109,6 +109,9 @@
   services.xserver.windowManager.i3.enable = true;
   services.displayManager.defaultSession = "none+i3";
 
+  # Enable bluetooth gui
+  services.blueman.enable = true;
+
   # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.comic-shanns-mono
@@ -127,6 +130,7 @@
     i3
     i3status
     dmenu
+    brightnessctl
 
     # tools
     unzip
@@ -143,16 +147,12 @@
     neovim
     xorg.xrandr
 
-    # programs
-    brave
-    ranger
-
     # code
-    # love
     gcc14
     rustup
     lua51Packages.lua
     dotnetCorePackages.sdk_9_0-bin
+    # love
 
     # lsp
     lua-language-server
@@ -162,8 +162,28 @@
 
     # formatter
     stylua
-    # luaformatter
     nixfmt-rfc-style
+    # luaformatter
+
+    # programs
+    brave # internet
+    ranger # terminal file browser
+    keepassxc # password management
+    discord # social
+    spotify # music
+    gimp3 # photo edit
+    pinta # paint net alt
+    libreoffice # office
+
+    # game
+    xivlauncher
+
+    # TODO
+    # python? 
+    # nvm/npm?
+    # postman?
+    # parsec?
+    # steam?
   ];
 
   # Shell

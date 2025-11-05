@@ -41,6 +41,9 @@ imports = [
   services.xserver.windowManager.i3.enable = true;
   services.displayManager.defaultSession = "none+i3";
 
+  # Enable bluetooth gui
+  services.blueman.enable = true;
+
   # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.comic-shanns-mono
@@ -64,6 +67,7 @@ imports = [
     i3
     i3status
     dmenu
+    brightnessctl
 
     # tools
     unzip
@@ -83,12 +87,14 @@ imports = [
     # programs
     brave
     ranger
+    keepassxc
+    discord
 
     # code
-    love
     gcc14
     rustup
     lua51Packages.lua
+    # love
 
     # lsp
     lua-language-server
@@ -98,8 +104,10 @@ imports = [
 
     # formatter
     stylua
-    # luaformatter
     nixfmt-rfc-style
+    # luaformatter
+
+    # game
 ```
 
 ```nix

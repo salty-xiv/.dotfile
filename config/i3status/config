@@ -11,7 +11,7 @@ general {
     color_good = "#a3be8c"
     color_degraded = "#ebcb8b"
     color_bad = "#bf616a"
-    interval = 1
+    interval = 5
     separator = ""
 }
 
@@ -19,27 +19,57 @@ order += "battery all"
 order += "load"
 order += "memory"
 order += "disk /"
+order += "volume speakers"
+order += "wireless wlp3s0"
+order += "ethernet enp0s31f6"
 order += "tztime local"
 
 battery all {
-    format = "%status %percentage  %remaining --"
+    status_chr = "💪"
+    status_bat = "🔋"
+    status_unk = "💡"
+    status_full = "💯"
+    status_idle = "🌙"
+    format = "%percentage%status%remaining -"
+    format_down = "No battery"
+    low_threshold = 10
 }
 
 load {
-    format = "CPU %1min% --"
+    format = "🖥️%1min% -"
 }
 
 memory {
-    format = "RAM %percentage_used --"
-    # format = "RAM %percentage_used of %total --"
+    format = "🎞%percentage_used -"
+    # format = "RAM %percentage_used of %total -"
+    threshold_degraded = "10%"
+    format_degraded = "MEMORY: %free"
 }
 
 disk "/" {
-    format = "DISK %percentage_used --"
-    # format = "DISK %percentage_used of %avail --"
+    format = "💾%percentage_used -"
+    # format = "DISK %percentage_used of %avail -"
 }
 
 tztime local {
-    format = "%Y-%m-%d %H:%M:%S "
+    format = "⏱️%Y-%m-%d %H:%M:%S "
 }
 
+volume speakers {
+    format = "🎧%volume -"
+    format_muted = "🎧muted (%volume) -"
+    device = "pipewire"
+    mixer = "Master"
+}
+
+wireless wlp3s0 {
+    # format_up = "ᯤ(%quality@%essid,%bitrate)%ip -"
+    format_up = "ᯤ%quality/%bitrate@%essid,%ip -"
+    format_down = "📵"
+}
+
+ethernet enp0s31f6 {
+    # format_up = "E: %ip (%speed)"
+    format_up = "🔌%speed(%ip) -"
+    format_down = ""
+}

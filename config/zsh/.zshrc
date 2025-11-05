@@ -86,3 +86,6 @@ alias egrep="egrep --color=auto"
 alias nbuild="sudo nixos-rebuild switch"
 alias nedit="sudo nvim /etc/nixos/configuration.nix"
 alias ncopy="sudo cp /etc/nixos/configuration.nix ~/.dotfile/config/nixos/"
+
+# config
+alias cedit="cd ~/.dotfile && nvim ."

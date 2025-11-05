@@ -42,6 +42,18 @@ exec --no-startup-id nm-applet
 # bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 # bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 
+# Volume control with wpctl (PipeWire native)
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# Brightness control with brightnessctl
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# Optional: Display volume (requires a status bar like i3blocks or polybar)
+# Example for i3blocks: add a block that runs `wpctl get-volume @DEFAULT_AUDIO_SINK@`Copied!
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -215,6 +227,9 @@ gaps inner 4px
 # Start feh to have a background image
 # exec_always --no-startup-id feh --bg-scale ~/.dotfile/assets/images/Untitled.png
 
+exec --no-startup-id i3-msg 'workspace 1; exec alacritty'
 # exec --no-startup-id i3-msg 'workspace 2; exec alacritty'
-# exec --no-startup-id i3-msg 'workspace 1; exec alacritty'
+# exec --no-startup-id i3-msg 'workspace 3; exec brave'
 
+# swap the caps lock and esc
+exec_always --no-startup-id setxkbmap -option caps:swapescape
