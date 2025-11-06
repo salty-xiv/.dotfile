@@ -89,3 +89,6 @@ alias ncopy="sudo cp /etc/nixos/configuration.nix ~/.dotfile/config/nixos/"
 
 # config
 alias cedit="cd ~/.dotfile && nvim ."
+
+# config
+alias passsync="bash ~/bashscript/passwordsync.sh"

@@ -7,16 +7,13 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      <nixos-hardware/lenovo/thinkpad/t480>
       ./hardware-configuration.nix
     ];
 
   # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -47,17 +44,20 @@
   };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
+
+  # Optional: Apply keymap to the virtual console (TTY)
+  console.useXkbConfig = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -82,9 +82,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.salty = {
+  users.users.saltydev = {
     isNormalUser = true;
-    description = "salty";
+    description = "salty-dev";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
     #  thunderbird
@@ -93,7 +93,7 @@
 
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "salty";
+  services.displayManager.autoLogin.user = "saltydev";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
@@ -105,28 +105,20 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Enable wayland for gnome
-  services.xserver = {
-    enable = true;
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
-    };
-    desktopManager.gnome.enable = true;
-  };
-
-  # Enable Hyprland
-  # services.xserver.displayManager.gdm.wayland = true;
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-  services.displayManager.defaultSession = "hyprland";
-
   # Enable the i3 Desktop Environment.
-  # services.xserver.windowManager.i3.enable = true;
-  # services.displayManager.defaultSession = "none+i3";
+  services.xserver.windowManager.i3.enable = true;
+  services.displayManager.defaultSession = "none+i3";
 
+  # Enable the hyperland Desktop Environment.
+  # programs.hyprland = {
+  #   enable = true;
+  #   withUWSM = true;
+  #   xwayland.enable = true;
+  # };
+  # programs.xwayland.enable = true;
+  # security.polkit.enable = true;
+
+  
   # Enable bluetooth gui
   services.blueman.enable = true;
 
@@ -136,64 +128,41 @@
     jetbrains-mono
   ];
 
-  # Shell
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
-  # Neovim
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # base
-    vim # basic editor
-    wget # basic tool
+    vim
+    wget
 
-    # window manager
-    # xorg.xinit # dep TODO
-    # dmenu # menu for opening apps. TODO
-    brightnessctl # controls brightness TODO
-    waybar # status bar for hyprland
-    kitty # basic terminal for hyprland TODO
+    # windowmanager
+    xorg.xinit
+    i3
+    i3status
+    dmenu
+    brightnessctl
+    kitty
 
     # tools
-    unzip # for zip files
-    curl # curl
-    tldr # TODO idr
-    autojump # for speed moving in terminal
-    zsh # terminal rep for bash
-    git # git
-    tmux # tmux
-    ripgrep 
+    unzip
+    curl
+    tldr
+    autojump
+    zsh
+    git
+    tmux
+    ripgrep
     fzf
     fd
-    alacritty # terminal
-    neovim # editor
-    # xorg.xrandr
-    parted # partition disk management
-    nautilus # file explorer
-
-    # programs
-    brave # internet browser
-    # ranger 
-    keepassxc # password manager
-    discord # social media
-    rclone # google drive sync
+    alacritty
+    neovim
+    xorg.xrandr
 
     # code
     gcc14
     rustup
     lua51Packages.lua
+    dotnetCorePackages.sdk_9_0-bin
     # love
 
     # lsp
@@ -207,31 +176,36 @@
     nixfmt-rfc-style
     # luaformatter
 
+    # programs
+    brave # internet
+    ranger # terminal file browser
+    keepassxc # password management
+    discord # social
+    spotify # music
+    gimp3 # photo edit
+    pinta # paint net alt
+    libreoffice # office
+    parsec-bin # remote desktop
+
     # game
+
+    # TODO
+    # python? 
+    # nvm/npm?
+    # postman?
+    # parsec?
+    # steam?
   ];
 
-  # systemd.user.services.rclone-sync = {
-  #   description = "Daily rclone sync to Google Drive";
-  #   after = [ "network-online.target" ];
-  #   requires = [ "network-online.target" ];
-  #   serviceConfig = {
-  #     Type = "oneshot";
-  #     ExecStart = "${pkgs.rclone}/bin/rclone sync /home/user/data gdrive:/backup --bwlimit=1M -v";
-  #     RemainAfterExit = true;
-  #   };
-  #   install = {
-  #     WantedBy = [ "default.target" ];
-  #   };
-  # };
-  #
-  # systemd.user.timers.rclone-sync = {
-  #   description = "Run rclone sync daily";
-  #   partOf = [ "rclone-sync.service" ];
-  #   timerConfig = {
-  #     OnCalendar = "daily";
-  #     Persistent = true;
-  #   };
-  # };  
+  # Shell
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
+  # Neovim
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
