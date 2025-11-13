@@ -61,7 +61,7 @@ alias ll="ls -alF --color=auto"
 
 ## nvim
 # alias nvim="nvim"
-alias vim="nvim ."
+# alias vim="nvim ."
 alias v="nvim ."
 
 ## git
@@ -70,26 +70,26 @@ alias gc="git commit -m"
 alias ga="git add"
 alias gd="git diff"
 alias gds="git diff --staged"
-alias gu="git push"
-alias gl="git pull"
+# alias gu="git push"
+# alias gl="git pull"
 
 # tmux
 alias t="tmux"
 alias ta="tmux attach"
 
 # grep
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
-alias egrep="egrep --color=auto"
+# alias grep="grep --color=auto"
+# alias fgrep="fgrep --color=auto"
+# alias egrep="egrep --color=auto"
 
 # nixos
 # alias nbuild="sudo nixos-rebuild switch"
 # alias nedit="sudo nvim /etc/nixos/configuration.nix"
 alias nbuild="sudo nixos-rebuild switch --impure --flake ~/nixos-conf/"
-alias nedit="nvim ~/nixos-conf"
+alias nedit="cd ~/nixos-conf && nvim ."
 
 # config
-# alias cedit="cd ~/.dotfile && nvim ."
+alias cedit="cd ~/.dotfile && nvim ."
 
 # config
 alias passsync="bash ~/.bashscript/passwordsync.sh"

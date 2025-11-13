@@ -25,7 +25,8 @@
   environment.systemPackages = with pkgs; [
     swaynotificationcenter # notification daemon
     rofi # app lanucher like dmenu
-    swayidle # idle daemon for wayland (related to screen locking)
+    # swayidle # idle daemon for wayland (related to screen locking)
+    hypridle # idle daemon for hyprland
     hyprshot # screenshot tool
     wpaperd # wallpaper for hyprland
     wttrbar # weather for waybar
