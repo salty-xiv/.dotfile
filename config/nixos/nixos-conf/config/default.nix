@@ -1,11 +1,14 @@
 {
   imports = [
+    ./browser.nix
+    ./games.nix
     ./hyprland.nix
-    ./packages.nix
-    ./firefox.nix
-    ./gamescope.nix
     ./neovim.nix
     ./obs.nix
+    ./programs.nix
     ./shell.nix
+    ./social-media.nix
+    ./util.nix
+    ./music.nix
   ];
 }

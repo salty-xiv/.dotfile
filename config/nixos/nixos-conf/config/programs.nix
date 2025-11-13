@@ -6,9 +6,7 @@
     gimp3 # photoshop
     libreoffice # office program
 
-    # streamcontroller # for the elgato streamdeck
     synology-drive-client # client to sync with synology nas
-
   ];
 
 }

@@ -24,4 +24,8 @@
 
   # Enable bluetooth gui
   services.blueman.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    networkmanagerapplet # gui for network
+  ];
 }

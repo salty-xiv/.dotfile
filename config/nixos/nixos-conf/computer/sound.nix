@@ -10,4 +10,8 @@
     pulse.enable = true;
   };
 
+  environment.systemPackages = with pkgs; [
+    pavucontrol # audio controller for pipewire
+  ];
+
 }

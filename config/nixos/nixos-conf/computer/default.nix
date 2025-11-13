@@ -1,6 +1,6 @@
 {
   imports = [
-    ./fonts.nix
+    ./fonts-cursor.nix
     ./gpu.nix
     ./keymap.nix
     ./network.nix
