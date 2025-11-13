@@ -86,7 +86,9 @@ alias ta="tmux attach"
 # alias nbuild="sudo nixos-rebuild switch"
 # alias nedit="sudo nvim /etc/nixos/configuration.nix"
 alias nbuild="sudo nixos-rebuild switch --impure --flake ~/nixos-conf/"
+alias lbuild="sudo nixos-rebuild switch --impure --flake ~/nixos-conf-len/"
 alias nedit="cd ~/nixos-conf && nvim ."
+alias ledit="cd ~/nixos-conf-len && nvim ."
 
 # config
 alias cedit="cd ~/.dotfile && nvim ."

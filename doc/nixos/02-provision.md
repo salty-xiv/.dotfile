@@ -1,6 +1,6 @@
 # Run Provision.sh
 
-```bash
+````bash
 # Set date
 export DATE=$(date +%F_%H-%M-%S)
 
@@ -48,6 +48,10 @@ ln -sf $HOME/.dotfile/config/nvim $HOME/.config/
 mv $HOME/.config/hypr $HOME/backup/$DATE/
 ln -sf $HOME/.dotfile/config/hypr $HOME/.config/
 
+# waybar
+mv $HOME/.config/waybar $HOME/backup/$DATE/
+ln -sf $HOME/.dotfile/config/waybar $HOME/.config/
+
 # rofi
 mv $HOME/.config/rofi $HOME/backup/$DATE/
 ln -sf $HOME/.dotfile/config/rofi $HOME/.config/
@@ -64,4 +68,4 @@ ln -sf $HOME/.dotfile/config/swaync $HOME/.config/
 ```bash
 # setup rust
 # rustup default stable
-```
+````
