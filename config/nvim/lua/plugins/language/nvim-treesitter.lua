@@ -15,6 +15,7 @@ function plug.config()
 			"bash",
 			"powershell",
 			"c_sharp",
+			"nix",
 		},
 
 		-- Install parsers synchronously (only applied to `ensure_installed`)

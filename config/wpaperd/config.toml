@@ -1,0 +1,15 @@
+[default]
+duration = "30m"
+mode = "fit"
+sorting = "random"
+queue-size = 100
+
+[HDMI-A-1]
+path = "/home/salty/Pictures/ffxiv-screenshots"
+
+[DP-1]
+path = "/home/salty/Pictures/ffxiv-screenshots"
+
+[DP-3]
+path = "/home/salty/Pictures/ffxiv-screenshots"
+

@@ -17,6 +17,14 @@ mkdir -p $HOME/project/love2d
 git config --global user.name "salty-dev"
 git config --global user.email "5520326+astarrywonder@users.noreply.github.com"
 
+# nixos
+mv $HOME/nixos-conf $HOME/backup/$DATE/
+ln -sf $HOME/.dotfile/config/nixos/nixos-conf $HOME/
+
+# bashscript
+mv $HOME/.bashscript $HOME/backup/$DATE/
+ln -sf $HOME/.dotfile/config/.bashscript $HOME/
+
 # link shell config
 mv $HOME/.zshrc $HOME/backup/$DATE/
 ln -sf $HOME/.dotfile/config/zsh/.zshrc $HOME/
@@ -40,19 +48,20 @@ ln -sf $HOME/.dotfile/config/nvim $HOME/.config/
 mv $HOME/.config/hypr $HOME/backup/$DATE/
 ln -sf $HOME/.dotfile/config/hypr $HOME/.config/
 
-# bashscript
-mv $HOME/bashscript $HOME/backup/$DATE/
-ln -sf $HOME/.dotfile/config/bashscript $HOME/
+# rofi
+mv $HOME/.config/rofi $HOME/backup/$DATE/
+ln -sf $HOME/.dotfile/config/rofi $HOME/.config/
 
+# wpaperd
+mv $HOME/.config/wpaperd $HOME/backup/$DATE/
+ln -sf $HOME/.dotfile/config/wpaperd $HOME/.config/
 
-# i3
-# mv $HOME/.config/i3 $HOME/backup/$DATE/
-# mv $HOME/.config/i3status $HOME/backup/$DATE/
-# ln -sf $HOME/.dotfile/config/i3 $HOME/.config/
-# ln -sf $HOME/.dotfile/config/i3status $HOME/.config/
+# swaync
+mv $HOME/.config/swaync $HOME/backup/$DATE/
+ln -sf $HOME/.dotfile/config/swaync $HOME/.config/
 
 
 ```bash
 # setup rust
-rustup default stable
+# rustup default stable
 ```

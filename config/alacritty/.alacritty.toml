@@ -106,7 +106,7 @@ startup_mode = "Windowed"
 # title = "<string>"
 #   Window title.
 # Default: "Alacritty"
-title = ""
+title = "Alacritty"
 
 # dynamic_title = true | false
 #   Allow terminal applications to change Alacritty's window title.

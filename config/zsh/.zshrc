@@ -83,12 +83,13 @@ alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 
 # nixos
-alias nbuild="sudo nixos-rebuild switch"
-alias nedit="sudo nvim /etc/nixos/configuration.nix"
-alias ncopy="sudo cp /etc/nixos/configuration.nix ~/.dotfile/config/nixos/"
+# alias nbuild="sudo nixos-rebuild switch"
+# alias nedit="sudo nvim /etc/nixos/configuration.nix"
+alias nbuild="sudo nixos-rebuild switch --impure --flake ~/nixos-conf/"
+alias nedit="nvim ~/nixos-conf"
 
 # config
-alias cedit="cd ~/.dotfile && nvim ."
+# alias cedit="cd ~/.dotfile && nvim ."
 
 # config
-alias passsync="bash ~/bashscript/passwordsync.sh"
+alias passsync="bash ~/.bashscript/passwordsync.sh"

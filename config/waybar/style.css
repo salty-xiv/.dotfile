@@ -1,0 +1,186 @@
+@import url("./colors.css");
+/* -- Global rules -- */
+* {
+  border: none;
+  font-family: "ComicShannsMono Nerd Font Mono";
+  font-size: 16px;
+  min-height: 10px;
+  color: @foreground;
+}
+
+window#waybar {
+  background: none;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* - Genera rules for visible modules -- */
+#bluetooth,
+#clock,
+#cpu,
+#custom-logo,
+#custom-notification,
+#custom-nvidia,
+#custom-weather,
+#disk,
+#idle_inhibitor,
+#keyboard-state,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#window {
+  color: @foreground;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: none;
+}
+
+/* Separation to the left */
+#clock,
+#cpu,
+#keyboard-state,
+#tray,
+#window {
+  margin-left: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* Separation to the rigth */
+#custom-nvidia,
+#custom-weather,
+#network,
+#window {
+  margin-right: 5px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* -- Specific styles -- */
+
+/* Modules left */
+#custom-logo {
+  font-size: 20px;
+  /* color: #89B4FA; */
+  /* background: #161320; */
+  padding-right: 17px;
+}
+
+#clock {
+  color: @background;
+  background: @green;
+}
+
+#custom-weather {
+  color: @background;
+  background: @cyan;
+}
+
+#cpu {
+  color: @background;
+  background: @purple;
+  /* width: 13px; */
+}
+
+#memory {
+  color: @background;
+  background: @red;
+}
+#disk {
+  color: @background;
+  background: @pink;
+}
+
+#custom-nvidia {
+  color: @background;
+  background: @green;
+}
+
+#window {
+  color: @background-darker;
+  background: @comment;
+}
+
+/* Modules center */
+#workspaces {
+  background: @background;
+  border-radius: 10px;
+  margin: 6px 5px;
+  padding: 0px 6px;
+}
+
+#workspaces button {
+  color: @foreground;
+  background: transparent;
+  padding: 4px 4px;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#workspaces button.occupied {
+  color: @foreground;
+}
+
+#workspaces button.active {
+  color: @foreground;
+  text-shadow: 0 0 4px @foreground;
+}
+
+#workspaces button:hover { }
+
+#workspaces button.active:hover { }
+
+/* Modules right */
+#tray {
+  color: @selection;
+  background: transparent;
+  border: solid 1px @foreground;
+  border-radius: 10px;
+  padding: 0px 5px;
+  margin: 6px 5px;
+}
+
+#keyboard-state {
+  color: @foreground;
+  background: @background;
+}
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+  color: @background;
+  background: @purple;
+}
+
+#idle_inhibitor {
+  color: @background;
+  background: @orange;
+}
+
+#pulseaudio {
+  color: @background;
+  background: @yellow;
+}
+
+#bluetooth {
+  color: @background;
+  background: @cyan;
+}
+
+#network {
+  color: @background;
+  background: @comment;
+  padding-right: 13px;
+}
+
+
+/* === Optional animation === */
+@keyframes blink {
+  to {
+    background-color: #BF616A;
+    color: #B5E8E0;
+  }
+}

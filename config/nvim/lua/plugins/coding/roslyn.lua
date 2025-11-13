@@ -5,4 +5,5 @@ local plug = {
 		-- your configuration comes here; leave empty for default settings
 	},
 }
-return plug
+-- return plug
+return {}
