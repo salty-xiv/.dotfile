@@ -29,6 +29,9 @@ ln -sf $HOME/.dotfile/config/.bashscript $HOME/
 mv $HOME/.zshrc $HOME/backup/$DATE/
 ln -sf $HOME/.dotfile/config/zsh/.zshrc $HOME/
 
+mv $HOME/.config/zsh-plugins $HOME/backup/$DATE/
+ln -sf $HOME/.dotfile/config/zsh-plugins/ $HOME/.config/
+
 # link alacritty config
 mv $HOME/.alacritty.toml $HOME/backup/$DATE/
 ln -sf $HOME/.dotfile/config/alacritty/.alacritty.toml $HOME/

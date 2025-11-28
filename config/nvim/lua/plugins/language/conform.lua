@@ -7,6 +7,7 @@ function plug.config()
 	local conform = require("conform")
 	conform.setup({
 		formatters_by_ft = {
+			c = { "clang-format" },
 			lua = { "stylua" },
 			-- lua = {"lua-format"},
 			nix = { "nixfmt" },

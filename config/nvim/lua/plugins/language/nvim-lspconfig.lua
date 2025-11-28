@@ -55,6 +55,7 @@ function plug.init()
 			},
 		},
 	})
+	lspconfig.clangd.setup({})
 end
 
 function plug.config(_, opts)

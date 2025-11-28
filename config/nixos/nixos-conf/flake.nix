@@ -2,7 +2,6 @@
   description = "Salty's nixos";
 
   inputs = {
-    # nixpkgs
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 

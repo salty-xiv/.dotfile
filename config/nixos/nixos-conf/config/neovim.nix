@@ -12,6 +12,7 @@
     tmux # tmux
 
     # code
+    # clang # c and c formatter
     gcc14 # c++ for nvim
     lua51Packages.lua # lua for nvim
 
