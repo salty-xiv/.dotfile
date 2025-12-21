@@ -34,7 +34,6 @@
           ../nixos-conf/config/music.nix
           ../nixos-conf/config/neovim.nix
           # ../nixos-conf/config/obs.nix
-          # ../nixos-conf/config/packages.nix
           ../nixos-conf/config/programs.nix
           ../nixos-conf/config/shell.nix
           ../nixos-conf/config/social-media.nix

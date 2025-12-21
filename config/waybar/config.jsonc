@@ -2,25 +2,27 @@
     "layer": "top",
     "position": "top",
     "modules-left": [
-        "custom/logo",
+        // "custom/logo",
         "clock",
-        "custom/weather",
+        // "custom/weather",
         "cpu",
         "memory",
         "disk",
-        "custom/nvidia",
+        // "custom/nvidia",
+        "hyprland/workspaces",
         "hyprland/window"
     ],
     "modules-center": [
-        "hyprland/workspaces"
     ],
     "modules-right": [
         "tray",
-        "keyboard-state",
+        "backlight",
+        "battery",
+        // "keyboard-state",
         "custom/notification",
-        "idle_inhibitor",
+        // "idle_inhibitor",
         "pulseaudio",
-        "bluetooth",
+        // "bluetooth",
         "network"
     ],
     "reload_style_on_change":true,
@@ -103,6 +105,24 @@
         "spacing": 10
     },
 
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": ["🌗", "🌕"],
+    },
+
+    "battery": {
+        "bat": "BAT0",
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons": ["🪫", "🔋"],
+        "max-length": 25
+    },
+
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -179,7 +199,7 @@
     },
 
     "network": {
-        "interface": "wlp12s0",
+        "interface": "wlp3s0",
         "format": "{ifname}",
         "format-wifi": "{essid} ({signalStrength}%) 🛜 ",
         "format-ethernet":"",

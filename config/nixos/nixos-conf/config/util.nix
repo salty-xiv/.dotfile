@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     autojump # for speed moving in terminal
     bat # better `cat`
+    brightnessctl # brightness controller
     curl # curl
     fd # fuzzy find
     fzf # fuzzy find
