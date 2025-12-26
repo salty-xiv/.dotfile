@@ -1,0 +1,176 @@
+- Made use with balenaEtcher
+- Connected to wifi
+- Grub
+- Default American English
+- Default New York timezone
+- Default keyboard
+- Manual partitioning
+- Efi
+    - 2048 mib
+    - Fat32
+    - Label efi
+    - /boot/efi
+    - Flag boot
+- Swap
+    - 8192 mib
+    - Linuxswap
+    - Flag swap
+- Root
+    - At least 50 gib
+        - I used 200 gib
+        - 204800 mib
+    - btrfs
+    - Label root
+    - /
+- Home
+    - Rest of space
+    - btrfs
+    - Label home
+    - /home
+- Hyprland
+- Default packages
+    - Should auto select the recommended and hyprland
+- Fill out account stuff
+- Install
+- `sudo -i` 
+    - Enter into sudo
+- `df -h`
+    - List disk info
+    - Find and copy the location of the root/home/btrfs vol
+        - In this case it was `/tmp/calamares-root-icseh9n4`
+    - Also note the drive location
+        - In this case it was `/dev/nvme1n1p3`
+- `btrfs subvolume list /tmp/calamares-root-icseh9n4`
+- WAIT until install is done but before restart
+- `mount -o subvolid=5 /dev/nvme1n1p3 /mnt`
+    - Mounts the drive at /mnt
+- `btrfs subvolume create /mnt/@var`
+- `btrfs subvolume create /mnt/@opt`
+- `btrfs subvolume create /mnt/@local`
+- Video shows an rsync cmd here to copy but this is a fresh install so /mnt/@ didn’t exist
+    - `rsync -axHAX —info=progress2 /mnt/@/var/. /mnt/@var/`
+    - `rsync -axHAX —info=progress2 /mnt/@/urs/local/. /mnt/@local/`
+    - `rm -fr /mnt/@/var/*`
+    - `rm -fr /mnt/@/usr/local/*`
+- `vim /mnt/@/etc/fstab` doesn’t work
+- `umount /mnt`
+- I rebooted to os and then rebooted back to usb again
+- Drive was missing?? Rebooting back to os
+- Used `vim /etc/fstab` in os
+    - Should be missing /var /opt and /usr/local
+    - Add them, coping /root and changing mount point and subvol=
+    - /var, /@var
+    - /opt, /@opt
+    - /usr/local, /@local
+- Found https://gist.github.com/NoobTaco/71cc9b7ce52e807e27de3ff298902197
+- Reinstalled everything
+- Efi
+    - 2048 mib
+    - Fat32
+    - Label efi
+    - /boot/efi
+    - Flag boot
+- Swap
+    - 69632 mib
+        - Expand to 68 gib to hold hibernation
+    - Linuxswap
+    - Flag swap
+- Root
+    - Rest of drive
+    - btrfs
+    - Label root
+    - /
+- stop after install. Need to REBOOT but back to USB not os
+- `lsblk`
+    - To find device names
+    - In this case /dev/nvm1n1p3
+- `sudo mount /dev/nvme1n1p3`
+- `sudo btrfs subvolume create /mnt/@old_root`
+- `sudo mv /mnt/* /mnt/@old_root`
+- `sudo btrfs subvolume create /mnt/@`
+- `sudo btrfs subvolume create /mnt/@home`
+- `sudo btrfs subvolume create /mnt/@snapshots`
+- `sudo mv /mnt/@old_root/* /mnt/@/`
+- `sudo btrfs subvolume delete /mnt/@old_root`
+- `sudo umount /mnt`
+- `sudo mount -o subvol=@,noatime,compress=zstd /dev/nvme2n1p2 /mnt`
+- sudo mkdir -p /mnt/home
+- sudo mount -o subvol=@home,noatime,compress=zstd /dev/nvme2n1p2 /mnt/home
+- sudo mkdir -p /mnt/.snapshots
+- sudo mount -o subvol=@snapshots,noatime,compress=zstd /dev/nvme2n1p2 /mnt/.snapshots
+- sudo mkdir -p /mnt/boot/efi
+- sudo mount /dev/nvme0n1p1 /mnt/boot/efi
+- Sudo vim /mnt/@/etc/fstab
+    - Add @snapshot using uuid of root
+- Grub error erm
+- Trying a reinstall with the video instructions
+- Efi
+    - 2048 mib
+    - Fat32
+    - Label efi
+    - /boot/efi
+    - Flag boot
+- Swap
+    - 69632 mib
+    - Linuxswap
+    - Flag swap
+- Root
+    - At least 50 gib
+        - I used 200 gib
+        - 204800 mib
+    - btrfs
+    - Label root
+    - /
+- Home
+    - Rest of space
+    - btrfs
+    - Label home
+    - /home
+- WAIT until install is done but before restart
+- `lsblk`
+- `mount -o subvolid=5 /dev/nvme1n1p3 /mnt`
+    - Mounts the drive at /mnt
+    - This needs to be root. Not /home
+- `btrfs subvolume list /mnt`
+- `btrfs subvolume create /mnt/@var`
+- `btrfs subvolume create /mnt/@opt`
+- `btrfs subvolume create /mnt/@local`
+- `rsync -axHAX —info=progress2 /mnt/@/var/. /mnt/@var/`
+- `rsync -axHAX —info=progress2 /mnt/@/urs/local/. /mnt/@local/`
+- `rm -fr /mnt/@/var/*`
+- `rm -fr /mnt/@/usr/local/*`
+- `vim /mnt/@/etc/fstab`
+    - Should be missing /var /opt and /usr/local
+    - Add them, copying /root and changing mount point and subvol=
+    - /var, /@var
+    - /opt, /@opt
+    - /usr/local, /@local
+- Reboot into os
+- Login
+- Close welcome window
+- Terminal
+- `sudo -i`
+- `btrfs quota enable /`
+- `snapper setup-quota`
+- `vim /etc/snapper/configs/root`
+    - Changed number limit to 2-50
+    - Changed number limit important to 4-20
+- `systemctl restart snapperd.service`
+- `vim /etc/snap-pac.ini`
+    - Uncomment [root]
+    - `important_packages = ["linux”, “linux-lts”, “nvidia”]`
+    - `important_commands = [”pacman -Syu”, “packman -Syyu”]`
+    - `userdata = [“important=no”]`
+- `pacman -Syu`
+- `pacman -S kdenlive`
+- `snapper ls`
+- `snapper cleanup number`
+- Everything working so far
+- Adding windows boot
+- `sudo -i`
+- `vim /etc/default/grub`
+    - Uncomment `GRUB_DISABLE_OS_PROBER=false`
+- `os-prober`
+    - Check that it detects the windows
+- `grub-mkconfig -o /boot/grub/grub.cfg`
+    - This should trigger the os-prober and fix
