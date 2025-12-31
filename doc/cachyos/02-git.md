@@ -6,16 +6,14 @@ Git should be preinstall with cachyos but if needed
 sudo pacman -S git
 ```
 
-Generate new SSH keys
-
 ```bash
+# Generate new SSH keys
 ssh-keygen -t rsa -b 3072 -f ~/.ssh/id_rsa -N ''
 cat ~/.ssh/id_rsa.pub
 ```
 
-If needed, Test Connection
-
 ```bash
+# If needed, Test Connection
 ssh -T git@github.com
 ```
 

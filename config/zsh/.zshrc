@@ -1,70 +1,97 @@
-# Set up the prompt
-# autoload -Uz promptinit
-# promptinit
-# prompt adam1
-
-setopt histignorealldups sharehistory
-
-
-# Use emacs keybindings even if our EDITOR is set to vi
-# bindkey -e
-
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.zsh_history
-
-# Use modern completion system
-autoload -Uz compinit
-compinit
-
-zstyle ":completion:*" auto-description "specify: %d"
-zstyle ":completion:*" completer _expand _complete _correct _approximate
-zstyle ":completion:*" format "Completing %d"
-zstyle ":completion:*" group-name ""
-zstyle ":completion:*" menu select=2
-eval "$(dircolors -b)"
-# zstyle ":completion:*:default" list-colors ${(s.:.)LS_COLORS}
-zstyle ":completion:*" list-colors ""
-zstyle ":completion:*" list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-zstyle ":completion:*" matcher-list "" "m:{a-z}={A-Z}" "m:{a-zA-Z}={A-Za-z}" "r:|[._-]=* r:|=* l:|=*"
-zstyle ":completion:*" menu select=long
-zstyle ":completion:*" select-prompt %SScrolling active: current selection at %p%s
-zstyle ":completion:*" use-compctl false
-zstyle ":completion:*" verbose true
-
-zstyle ":completion:*:*:kill:*:processes" list-colors "=(#b) #([0-9]#)*=0=01;31"
-zstyle ":completion:*:kill:*" command "ps -u $USER -o pid,%cpu,tty,cputime,cmd"
+# Original Location /usr/share/cachyos-zsh-config/cachyos-config.zsh
+#
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 
-####################
-# PATH
-####################
-# append
-path=("/opt/nvim/" $path)
-# path=("/opt/love2d/" $path)
+# Path to your oh-my-zsh installation.
+export ZSH="/usr/share/oh-my-zsh"
 
-# NVM/NPM
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+# Uncomment the following line if pasting URLs and other text is messed up.
+DISABLE_MAGIC_FUNCTIONS="true"
 
+# Uncomment the following line to enable command auto-correction.
+ENABLE_CORRECTION="true"
 
-####################
-# Custom Prompt
-####################
-export PS1="%{$(tput setaf 39)%}%n%{$(tput setaf 111)%}@%{$(tput setaf 34)%}%m %{$(tput setaf 214)%}%~ %{$(tput sgr0)%} > "
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"
 
-####################
-# Alias
-####################
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+[[ -z "${plugins[*]}" ]] && plugins=(git fzf extract)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Ignore commands that start with spaces and duplicates.
+
+export HISTCONTROL=ignoreboth
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Don't add certain commands to the history file.
+
+export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Use custom `less` colors for `man` pages.
+
+export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
+export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make new shells get the history lines from all previous
+# shells instead of the default "last window closed" history.
+
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+#alias open="xdg-open"
+# alias make="make -j`nproc`"
+# alias ninja="ninja -j`nproc`"
+# alias n="ninja"
+# alias c="clear"
+# alias rmpkg="sudo pacman -Rsn"
+# alias cleanch="sudo pacman -Scc"
+# alias fixpacman="sudo rm /var/lib/pacman/db.lck"
+alias update="sudo pacman -Syu"
+
+# Help people new to Arch
+# alias apt="man pacman"
+# alias apt-get="man pacman"
+# alias please="sudo"
+# alias tb="nc termbin.com 9999"
+
+# Cleanup orphaned packages
+alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
+
+# Get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# Recent installed packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
 ## shell
 alias ..="cd .."
-alias ll="ls -alF --color=auto"
+alias ll="ls -alF --color=auto --group-directories-first"
 
 ## nvim
-# alias nvim="nvim"
-# alias vim="nvim ."
 alias v="nvim ."
 
 ## git
@@ -73,28 +100,27 @@ alias gc="git commit -m"
 alias ga="git add"
 alias gd="git diff"
 alias gds="git diff --staged"
-# alias gu="git push"
-# alias gl="git pull"
 
 # tmux
 alias t="tmux"
 alias ta="tmux attach"
 
-# grep
-# alias grep="grep --color=auto"
-# alias fgrep="fgrep --color=auto"
-# alias egrep="egrep --color=auto"
-
-# nixos
-# alias nbuild="sudo nixos-rebuild switch"
-# alias nedit="sudo nvim /etc/nixos/configuration.nix"
-alias nbuild="sudo nixos-rebuild switch --impure --flake ~/nixos-conf/"
-alias lbuild="sudo nixos-rebuild switch --impure --flake ~/nixos-conf-len/"
-alias nedit="cd ~/nixos-conf && nvim ."
-alias ledit="cd ~/nixos-conf-len && nvim ."
-
 # config
-alias cedit="cd ~/.dotfile && nvim ."
+alias passsync="bash ~/.local/bin/passwordsync.sh"
 
-# config
-alias passsync="bash ~/.bashscript/passwordsync.sh"
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# Fish-like syntax highlighting and autosuggestions
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Use history substring search
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# pkgfile "command not found" handler
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export FZF_BASE=/usr/share/fzf

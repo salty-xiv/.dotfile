@@ -1,7 +1,7 @@
 local plug = { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }
 
 function plug.config()
-	local treesitter = require("nvim-treesitter.configs")
+	local treesitter = require("nvim-treesitter")
 	treesitter.setup({
 		-- A list of parser names, or "all"
 		ensure_installed = {
@@ -56,14 +56,14 @@ function plug.config()
 		},
 	})
 
-	local treesitter_parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-	treesitter_parser_config.templ = {
-		install_info = {
-			url = "https://github.com/vrischmann/tree-sitter-templ.git",
-			files = { "src/parser.c", "src/scanner.c" },
-			branch = "master",
-		},
-	}
+	-- local treesitter_parser_config = require("nvim-treesitter").get_parser_configs()
+	-- treesitter_parser_config.templ = {
+	-- 	install_info = {
+	-- 		url = "https://github.com/vrischmann/tree-sitter-templ.git",
+	-- 		files = { "src/parser.c", "src/scanner.c" },
+	-- 		branch = "master",
+	-- 	},
+	-- }
 end
 
 return plug

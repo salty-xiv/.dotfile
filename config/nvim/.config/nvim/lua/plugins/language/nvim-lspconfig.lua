@@ -13,9 +13,7 @@ local plug = {
 }
 
 function plug.init()
-	local lspconfig = require("lspconfig")
-
-	lspconfig.lua_ls.setup({
+	vim.lsp.enable({
 		on_init = function(client)
 			if client.workspace_folders then
 				local path = client.workspace_folders[1].name
@@ -55,7 +53,6 @@ function plug.init()
 			},
 		},
 	})
-	lspconfig.clangd.setup({})
 end
 
 function plug.config(_, opts)

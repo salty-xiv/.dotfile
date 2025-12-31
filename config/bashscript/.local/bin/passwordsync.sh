@@ -10,7 +10,7 @@
 # 2) use keepassxc cli to merge the remote database into the local one
 # 3) rclone copy the updated local db back to the remote
 #
-export TMPDIR=$HOME/tmp
+export TMPDIR=$HOME/drive/tmp
 tempdir=$(mktemp -d -t passwordsync-XXXXX.tmp)
 function cleanup {
   rm -rf "$tempdir"

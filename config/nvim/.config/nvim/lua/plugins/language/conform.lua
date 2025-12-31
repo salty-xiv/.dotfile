@@ -7,10 +7,10 @@ function plug.config()
 	local conform = require("conform")
 	conform.setup({
 		formatters_by_ft = {
-			c = { "clang-format" },
+			-- c = { "clang-format" },
 			lua = { "stylua" },
 			-- lua = {"lua-format"},
-			nix = { "nixfmt" },
+			-- nix = { "nixfmt" },
 			-- cs = { "nixpkgs_fmt" },
 			-- Conform will run multiple formatters sequentially
 			-- python = {"isort", "black"},

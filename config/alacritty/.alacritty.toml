@@ -24,7 +24,7 @@
 #   used.
 # Default: "None"
 # working_directory = "C:\\Users\\salty\\OneDrive\\Documents\\aac-docs\\Workspace"
-working_directory = "~/project/"
+working_directory = "~/"
 
 # live_config_reload = true | false
 #   Live config reload (changes require restart)
@@ -156,8 +156,8 @@ decorations_theme_variant = "Dark"
 #   macOS: { family = "Menlo", style = "Regular" }
 #   normal = { family = "<string>", style = "<string>" }
 # normal = { family = "Cascadia Code", style = "Regular" } // included on windows 11
-# normal = { family = "SeriousShanns Nerd Font Mono", style = "Regular" }
-normal = { family = "ComicShannsMono Nerd Font Mono", style = "Regular" }
+# normal = { family = "ComicShannsMono Nerd Font Mono", style = "Regular" }
+normal = { family = "SeriousShanns Nerd Font Mono", style = "Regular" }
 
 # bold = { family = "<string>", style = "<string>" }
 #   If the family is not specified, it will fall back to the value specified for the normal font.
@@ -174,7 +174,7 @@ normal = { family = "ComicShannsMono Nerd Font Mono", style = "Regular" }
 # size = <float>
 #   Font size in points.
 # Default: 11.25
-size = 14
+size = 16
 
 # offset = { x = <integer>, y = <integer> }
 #   Offset is the extra space around each character. y can be thought of as modifying the line spacing, and x as modifying
@@ -346,7 +346,7 @@ thickness = 0.15
 #   [shell]
 #   program = "/bin/zsh"
 #   args = ["-l"]
-# shell = "pwsh"
+shell = "/bin/zsh"
 
 # osc52 = "Disabled" | "OnlyCopy" | "OnlyPaste" | "CopyPaste"
 #   Controls the ability to write to the system clipboard with the OSC 52 escape sequence. While this escape sequence is
