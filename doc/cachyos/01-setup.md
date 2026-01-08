@@ -30,7 +30,7 @@ Restart and boot into the USB.
      - Linuxswap
      - Flag swap
    - Root
-     - 204800 mib
+     - 102400 mib
      - btrfs
      - Label root
      - /
