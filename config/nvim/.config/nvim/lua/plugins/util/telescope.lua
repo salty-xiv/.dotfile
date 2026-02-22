@@ -23,7 +23,13 @@ end
 
 function plug.config()
 	local telescope = require("telescope")
-	telescope.setup({})
+	telescope.setup({
+		defaults = {
+			preview = {
+				treesitter = false,
+			},
+		},
+	})
 end
 
 return plug

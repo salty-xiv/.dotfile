@@ -20,3 +20,10 @@ not currently installed as bottles and winboat seems to fit better
 ```bash
 # lutris # wine manager to launch app
 ```
+
+# protonplus
+
+```
+# protonplus # wine manager that includes dwproton
+paru protonplus
+```

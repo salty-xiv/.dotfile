@@ -71,6 +71,7 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # alias cleanch="sudo pacman -Scc"
 # alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 alias update="sudo pacman -Syu"
+alias pupdate="paru -Syu"
 
 # Help people new to Arch
 # alias apt="man pacman"

@@ -56,12 +56,11 @@ function plug.init()
 end
 
 function plug.config(_, opts)
-	local lspconfig = require("lspconfig")
 	for server, config in pairs(opts.servers) do
 		-- passing config.capabilities to blink.cmp merges with the capabilities in your
 		-- `opts[server].capabilities, if you've defined it
 		config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
-		lspconfig[server].setup(config)
+		vim.lsp.config(server, config)
 	end
 	-- LspAttach is where you enable features that only work
 	-- if there is a language server active in the file
