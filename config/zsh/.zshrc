@@ -109,6 +109,9 @@ alias ta="tmux attach"
 # config
 alias passsync="bash ~/.local/bin/passwordsync.sh"
 
+# mudfish
+alias mudfish="sudo -E /opt/mudfish/6.3.3/bin/mudrun"
+
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Fish-like syntax highlighting and autosuggestions
