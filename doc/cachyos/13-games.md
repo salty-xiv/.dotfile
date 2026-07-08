@@ -125,3 +125,17 @@ winetricks dotnet48
 prismlauncher # minecraft
 sudo pacman -S prismlauncher
 ```
+
+# ROM
+
+```bash
+# steam-rom-manager-bin # rom origanizer/renamer
+paru steam-rom-manager-bin
+```
+
+# Heroic launcher (epic)
+
+```bash
+# heroic-games-launcher-bin # Hero Launcher
+sudo pacman -Syu heroic-games-launcher-bin
+```

@@ -26,7 +26,7 @@
 # See https://wiki.hyprland.org/Configuring/Monitors/
 # monitor=,preferred,auto,auto
 monitor=HDMI-A-1,3840x2160@119.88Hz,0x0,1
-monitor=DP-3,2560x1440@59.95Hz,0x-2561,1
+monitor=DP-2,2560x1440@59.95Hz,0x-2561,1
 monitor=DP-1,2560x1440@59.95Hz,0x2561,1
 
 
@@ -217,7 +217,6 @@ animations {
 
 # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
 dwindle {
-    pseudotile = true # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
     preserve_split = true # You probably want this
 }
 
@@ -290,7 +289,7 @@ bind = $mainMod, M, exec, sleep 2 && hyprctl dispatch dpms off # sleep monitors
 
 bind = $mainMod, V, togglefloating, # toggle float
 bind = $mainMod, F, fullscreen, # toggle full screen
-bind = $mainMod, G, togglesplit, # toggle current split layout
+bind = $mainMod, G, layoutmsg, togglesplit, # toggle current split layout
 # bind = $mainMod, P, pseudo, # toggle taking up full space
 
 # Move focus with mainMod + arrow keys

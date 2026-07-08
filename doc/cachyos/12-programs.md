@@ -24,7 +24,8 @@ sudo pacman -S gimp libreoffice-still obs-studio-browser vlc
 ```bash
 # gparted # gui partition tool
 # tree # tool to show folders in cli
-sudo pacman -S gparted tree
+# geany # basic text editor
+sudo pacman -S gparted tree geany
 ```
 
 # AUR

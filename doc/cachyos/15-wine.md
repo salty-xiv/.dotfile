@@ -17,9 +17,11 @@ sudo pacman -S winboat docker podman-compose
 # lutris
 
 not currently installed as bottles and winboat seems to fit better
+handle
 
 ```bash
 # lutris # wine manager to launch app
+sudo pacman -S lutris
 ```
 
 # protonplus
