@@ -1,13 +1,17 @@
--- local plug = {
--- 	"S1M0N38/love2d.nvim",
--- 	lazy = false,
--- 	cmd = "LoveRun",
--- 	opts = {},
--- 	keys = {
--- 		{ "<leader>v", ft = "lua", desc = "LÖVE" },
--- 		{ "<leader>vv", "<cmd>LoveRun<cr>", ft = "lua", desc = "Run LÖVE" },
--- 		{ "<leader>vs", "<cmd>LoveStop<cr>", ft = "lua", desc = "Stop LÖVE" },
--- 	},
--- }
+local plug = {
+  "S1M0N38/love2d.nvim",
+  version = "3.*",
+  event = "VeryLazy",
+  opts = {},
+  keys = {
+    { "<leader>v", "", desc = "LÖVE" },
+    { "<leader>vr", "<cmd>Love run<cr>", desc = "Run LÖVE" },
+    { "<leader>vw", "<cmd>Love watch<cr>", desc = "Watch LÖVE" },
+    { "<leader>vi", "<cmd>Love info<cr>", desc = "Info LÖVE" },
+    { "<leader>vs", "<cmd>Love stop<cr>", desc = "Stop LÖVE" },
+    { "<leader>vo", "<cmd>Love output<cr>", desc = "Output panel" },
+  },
+}
 
+-- return plug
 return {}

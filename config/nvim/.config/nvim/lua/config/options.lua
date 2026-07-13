@@ -1,49 +1,49 @@
 -- opts
 local opts = {
-	shiftwidth = 4,
-	tabstop = 4,
-	softtabstop = 4,
-	expandtab = true,
-	smartindent = true,
+  shiftwidth = 4,
+  tabstop = 4,
+  softtabstop = 4,
+  expandtab = true,
+  smartindent = true,
 
-	wrap = false,
+  wrap = false,
 
-	termguicolors = true,
-	guicursor = "",
+  termguicolors = true,
+  guicursor = "",
 
-	nu = true,
-	number = true,
-	relativenumber = true,
+  nu = true,
+  number = true,
+  relativenumber = true,
 
-	foldlevel = 99,
+  foldlevel = 99,
 
-	swapfile = false,
-	backup = false,
-	-- Linux
-	undodir = os.getenv("HOME") .. "/.vim/undodir",
-	-- Windows
-	-- undodir = os.getenv("USERPROFILE") .. "/.vim/undodir",
-	undofile = true,
+  swapfile = false,
+  backup = false,
+  -- Linux
+  undodir = os.getenv("HOME") .. "/.vim/undodir",
+  -- Windows
+  -- undodir = os.getenv("USERPROFILE") .. "/.vim/undodir",
+  undofile = true,
 
-	hlsearch = false,
-	incsearch = true,
+  hlsearch = false,
+  incsearch = true,
 
-	scrolloff = 8,
+  scrolloff = 8,
 
-	-- Reserve a space in the gutter
-	-- This will avoid an annoying layout shift in the screen
-	signcolumn = "yes",
+  -- Reserve a space in the gutter
+  -- This will avoid an annoying layout shift in the screen
+  signcolumn = "yes",
 
-	updatetime = 50,
+  updatetime = 50,
 
-	colorcolumn = "120",
+  colorcolumn = "120",
 
-	clipboard = "unnamedplus",
+  clipboard = "unnamedplus",
 }
 
 -- Set options from table
 for opt, val in pairs(opts) do
-	vim.o[opt] = val
+  vim.o[opt] = val
 end
 
 -- global
@@ -62,15 +62,15 @@ local autocmd = vim.api.nvim_create_autocmd
 local yank_group = augroup("HighlightYank", {})
 
 function R(name)
-	require("plenary.reload").reload_module(name)
+  require("plenary.reload").reload_module(name)
 end
 
 autocmd("TextYankPost", {
-	group = yank_group,
-	pattern = "*",
-	callback = function()
-		vim.hl.on_yank({ higroup = "IncSearch", timeout = 40 })
-	end,
+  group = yank_group,
+  pattern = "*",
+  callback = function()
+    vim.hl.on_yank({ higroup = "IncSearch", timeout = 40 })
+  end,
 })
 
 autocmd({ "BufWritePre" }, { group = Personal, pattern = "*", command = [[%s/\s\+$//e]] })
