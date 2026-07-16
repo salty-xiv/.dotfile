@@ -1,5 +1,6 @@
 local plug = {
   "sphamba/smear-cursor.nvim",
+
   opts = {
     -- Smear cursor when switching buffers or windows.
     smear_between_buffers = true,
@@ -12,17 +13,12 @@ local plug = {
     scroll_buffer_space = true,
 
     -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
-    -- Smears will blend better on all backgrounds.
+    -- Smears and particles will look a lot less blocky.
     legacy_computing_symbols_support = false,
 
     -- Smear cursor in insert mode.
     -- See also `vertical_bar_cursor_insert_mode` and `distance_stop_animating_vertical_bar`.
     smear_insert_mode = true,
-
-    -- How fast the smear's tail moves towards the target.
-    -- 0: no movement, 1: instantaneous
-    -- 0.3 is default
-    trailing_stiffness = 0.4,
   },
 }
 

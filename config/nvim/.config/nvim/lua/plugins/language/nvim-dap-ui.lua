@@ -1,7 +1,8 @@
 local plug = {
   "rcarriga/nvim-dap-ui",
-  dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "folke/lazydev.nvim" },
+  dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 }
+
 function plug.config()
   require("lazydev").setup({
     library = { "nvim-dap-ui" },

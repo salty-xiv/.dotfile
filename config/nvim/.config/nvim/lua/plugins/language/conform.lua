@@ -1,39 +1,21 @@
 local plug = { "stevearc/conform.nvim", opts = {} }
 
--- function plug.init()
--- end
-
 function plug.config()
   local conform = require("conform")
   conform.setup({
     formatters_by_ft = {
-      -- c = { "clang-format" },
-      lua = { "stylua" },
-      -- lua = {"lua-format"},
-      -- nix = { "nixfmt" },
-      -- cs = { "nixpkgs_fmt" },
-      -- Conform will run multiple formatters sequentially
-      -- python = {"isort", "black"},
-      -- You can customize some of the format options for the filetype (:help conform.format)
-      -- rust = { "rustfmt", lsp_format = "fallback" },
-      -- Conform will run the first available formatter
-      -- javascript = { "prettierd", "prettier", stop_after_first = true },
-      javascript = { "prettier", stop_after_first = true },
-      typescript = { "prettier" },
-      -- javascriptreact = { "prettier" },
-      -- typescriptreact = { "prettier" },
-      -- svelte = { "prettier" },
       css = { "prettier" },
       html = { "prettier" },
+      javascript = { "prettier", stop_after_first = true },
       json = { "prettier" },
-      yaml = { "prettier" },
+      lua = { "stylua" },
       markdown = { "prettier" },
-      -- graphql = { "prettier" },
-      -- ruby = { "rubocop" },
-      -- cs = { "csharpier" },
+      rust = { "rustfmt" },
+      toml = { "taplo" },
+      typescript = { "prettier" },
+      yaml = { "prettier" },
     },
     format_on_save = {
-      -- These options will be passed to conform.format()
       timeout_ms = 2000,
       lsp_format = "fallback",
     },

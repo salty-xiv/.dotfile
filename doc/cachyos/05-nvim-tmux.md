@@ -20,6 +20,14 @@ need to install secondary packages for formatting linting etc..
 sudo pacman -S lua-language-server lua51 luacheck luarocks prettier stylua tree-sitter-cli
 ```
 
+```bash
+# rust # rust
+# rust-analyzer # rust lsp
+# rustfmt # rust formatter
+# taplo-cli # toml formatter
+sudo pacman -S rust rust-analyzer rustfmt taplo-cli
+```
+
 # Tmux
 
 stow should take care of dotfiles.

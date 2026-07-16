@@ -551,6 +551,12 @@ bindings = [{ mouse = "Right", mods = "Control", action = "Paste" }]
 #   { key = "L", mods = "Control|Shift", chars = "l" },
 #   ]
 
+# disable zoom hotkeys
+bindings = [
+  { key = "Equals", mods = "Control", action = "None" },
+  { key = "Minus", mods = "Control", action = "None" },
+]
+
 # ********************
 # * debug
 # ********************

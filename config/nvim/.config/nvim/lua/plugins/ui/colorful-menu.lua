@@ -29,9 +29,13 @@ local plug = {
         },
         -- for lsp_config or typescript-tools
         ts_ls = {
+          -- false means do not include any extra info,
+          -- see https://github.com/xzbdmw/colorful-menu.nvim/issues/42
           extra_info_hl = "@comment",
         },
         vtsls = {
+          -- false means do not include any extra info,
+          -- see https://github.com/xzbdmw/colorful-menu.nvim/issues/42
           extra_info_hl = "@comment",
         },
         ["rust-analyzer"] = {
@@ -67,11 +71,18 @@ local plug = {
           -- It is usually import path such as "os"
           extra_info_hl = "@comment",
         },
-
+        pylsp = {
+          extra_info_hl = "@comment",
+          -- Dim the function argument area, which is the main
+          -- difference with pyright.
+          arguments_hl = "@comment",
+        },
         -- If true, try to highlight "not supported" languages.
         fallback = true,
+        -- this will be applied to label description for unsupport languages
+        fallback_extra_info_hl = "@comment",
       },
-      -- If the built-in logic fails to find a suitable highlight group,
+      -- If the built-in logic fails to find a suitable highlight group for a label,
       -- this highlight is applied to the label.
       fallback_highlight = "@variable",
       -- If provided, the plugin truncates the final displayed text to
@@ -84,4 +95,5 @@ local plug = {
     })
   end,
 }
+
 return plug

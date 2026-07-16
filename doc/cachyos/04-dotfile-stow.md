@@ -26,3 +26,21 @@ run the stow command to push all files
 # will take the current files/folders as the current stow
 stow --adopt nvim
 ```
+
+# Extra softlink
+
+Not always needed but sometimes its better to keep some files/folders on spare drives for space reasons
+
+## workspace
+
+```bash
+mv $HOME/workspace /mnt/storage
+ln -s /mnt/storage/workspace $HOME/
+```
+
+## project
+
+```bash
+mv $HOME/project /mnt/storage
+ln -s /mnt/storage/project $HOME/
+```
