@@ -43,24 +43,24 @@ Restart and boot into the USB.
    - Hyprland
    - Default packages. Should auto select the recommended and hyprland packages
    - Fill out account info
-6. `mount -o subvolid=5 /dev/nvme1n1p3 /mnt`
+6. `sudo mount -o subvolid=5 /dev/nvme1n1p3 /mnt`
    - Mounts the root drive at /mnt
    - makes sure this is not the /home partition. need access to root since that's where the snapshots are stored and fstab
    - `lsblk` can be used to list storage devices
 7. Create subvolumes for extra dir in snapshot
-   - `btrfs subvolume create /mnt/@var`
-   - `btrfs subvolume create /mnt/@opt`
-   - `btrfs subvolume create /mnt/@local`
-   - `btrfs subvolume list /mnt`
+   - `sudo btrfs subvolume create /mnt/@var`
+   - `sudo btrfs subvolume create /mnt/@opt`
+   - `sudo btrfs subvolume create /mnt/@local`
+   - `sudo btrfs subvolume list /mnt`
 8. Copy /var and /usr/local to subvolume.
-   - `rsync -axHAX —info=progress2 /mnt/@/var/. /mnt/@var/`
-   - `rsync -axHAX —info=progress2 /mnt/@/urs/local/. /mnt/@local/`
+   - `sudo rsync -axHAX —info=progress2 /mnt/@/var/. /mnt/@var/`
+   - `sudo rsync -axHAX —info=progress2 /mnt/@/usr/local/. /mnt/@local/`
    - if this step fails, the wrong partition was mounted
 9. Remove the old /ar and /usr/local since the system will refer to the subvolume
-   - `rm -fr /mnt/@/var/*`
-   - `rm -fr /mnt/@/usr/local/*`
+   - `sudo rm -fr /mnt/@/var/*`
+   - `sudo rm -fr /mnt/@/usr/local/*`
 10. edit fstab so the subvolumes are recognized by os
-    - `vim /mnt/@/etc/fstab`
+    - `sudo vim /mnt/@/etc/fstab`
     - Should be missing /var /opt and /usr/local
     - Add them, copying /root and changing mount point and subvol=
     - /var, /@var
