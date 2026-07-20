@@ -46,18 +46,18 @@ vim.lsp.config("lua_ls", {
 })
 vim.lsp.enable("lua_ls")
 
-vim.lsp.config("rust_analyzer", {
-  cmd = { "/usr/bin/rust-analyzer" },
-  filetypes = { "rust" },
-  capabilities = {
-    experimental = {
-      commands = {
-        commands = { "rust-analyzer.showReferences", "rust-analyzer.runSingle", "rust-analyzer.debugSingle" },
-      },
-      serverStatusNotification = true,
-    },
-  },
-})
-vim.lsp.enable("rust_analyzer")
+-- vim.lsp.config("rust_analyzer", {
+--   cmd = { "/usr/bin/rust-analyzer" },
+--   filetypes = { "rust" },
+--   capabilities = {
+--     experimental = {
+--       commands = {
+--         commands = { "rust-analyzer.showReferences", "rust-analyzer.runSingle", "rust-analyzer.debugSingle" },
+--       },
+--       serverStatusNotification = true,
+--     },
+--   },
+-- })
+-- vim.lsp.enable("rust_analyzer")
 
 return plug
