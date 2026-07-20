@@ -15,22 +15,22 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-	output = "HDMI-A-1",
-	mode = "3840x2160@119.88Hz",
-	position = "0x0",
-	scale = "1",
+  output = "HDMI-A-1",
+  mode = "3840x2160@119.88Hz",
+  position = "0x0",
+  scale = "1",
 })
 hl.monitor({
-	output = "DP-3",
-	mode = "2560x1440@59.95Hz",
-	position = "0x-2561",
-	scale = "1",
+  output = "DP-3",
+  mode = "2560x1440@59.95Hz",
+  position = "0x-2561",
+  scale = "1",
 })
 hl.monitor({
-	output = "DP-1",
-	mode = "2560x1440@59.95Hz",
-	position = "0x2561",
-	scale = "1",
+  output = "DP-1",
+  mode = "2560x1440@59.95Hz",
+  position = "0x2561",
+  scale = "1",
 })
 
 ---------------------
@@ -52,11 +52,11 @@ local menu = "rofi"
 -- Or execute your favorite apps at launch like this:
 --
 hl.on("hyprland.start", function()
-	hl.exec_cmd("~/.bashscript/suspend.sh") -- sleep and suspend
-	hl.exec_cmd("nm-applet") -- network
-	hl.exec_cmd("waybar") -- statusbar
-	hl.exec_cmd("wpaperd -d") -- wallpaper
-	hl.exec_cmd("swaync") -- notifications
+  hl.exec_cmd("~/.bashscript/suspend.sh") -- sleep and suspend
+  hl.exec_cmd("nm-applet") -- network
+  hl.exec_cmd("waybar") -- statusbar
+  hl.exec_cmd("wpaperd -d") -- wallpaper
+  hl.exec_cmd("swaync") -- notifications
 end)
 
 -------------------------------
@@ -93,52 +93,52 @@ hl.env("HYPRSHOT_DIR", "$HOME/Pictures/Screenshots/")
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
-	general = {
-		gaps_in = 5,
-		gaps_out = 20,
+  general = {
+    gaps_in = 5,
+    gaps_out = 20,
 
-		border_size = 2,
+    border_size = 2,
 
-		col = {
-			active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
-			inactive_border = "rgba(595959aa)",
-		},
+    col = {
+      active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
+      inactive_border = "rgba(595959aa)",
+    },
 
-		-- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-		resize_on_border = false,
+    -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
+    resize_on_border = false,
 
-		-- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
-		allow_tearing = false,
+    -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
+    allow_tearing = false,
 
-		layout = "dwindle",
-	},
+    layout = "dwindle",
+  },
 
-	decoration = {
-		rounding = 10,
-		rounding_power = 2,
+  decoration = {
+    rounding = 10,
+    rounding_power = 2,
 
-		-- Change transparency of focused and unfocused windows
-		active_opacity = 1.0,
-		inactive_opacity = 1.0,
+    -- Change transparency of focused and unfocused windows
+    active_opacity = 1.0,
+    inactive_opacity = 1.0,
 
-		shadow = {
-			enabled = true,
-			range = 4,
-			render_power = 3,
-			color = 0xee1a1a1a,
-		},
+    shadow = {
+      enabled = true,
+      range = 4,
+      render_power = 3,
+      color = 0xee1a1a1a,
+    },
 
-		blur = {
-			enabled = true,
-			size = 3,
-			passes = 1,
-			vibrancy = 0.1696,
-		},
-	},
+    blur = {
+      enabled = true,
+      size = 3,
+      passes = 1,
+      vibrancy = 0.1696,
+    },
+  },
 
-	animations = {
-		enabled = true,
-	},
+  animations = {
+    enabled = true,
+  },
 })
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -189,23 +189,23 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
-	dwindle = {
-		preserve_split = true, -- You probably want this
-	},
+  dwindle = {
+    preserve_split = true, -- You probably want this
+  },
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
-	master = {
-		new_status = "master",
-	},
+  master = {
+    new_status = "master",
+  },
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 hl.config({
-	scrolling = {
-		fullscreen_on_one_column = true,
-	},
+  scrolling = {
+    fullscreen_on_one_column = true,
+  },
 })
 
 ----------------
@@ -213,11 +213,11 @@ hl.config({
 ----------------
 
 hl.config({
-	misc = {
-		force_default_wallpaper = 0, -- Set to 0 or 1 to disable the anime mascot wallpapers
-		disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
-		key_press_enables_dpms = true,
-	},
+  misc = {
+    force_default_wallpaper = 0, -- Set to 0 or 1 to disable the anime mascot wallpapers
+    disable_hyprland_logo = true, -- If true disables the random hyprland logo / anime girl background. :(
+    key_press_enables_dpms = true,
+  },
 })
 
 ---------------
@@ -225,34 +225,34 @@ hl.config({
 ---------------
 
 hl.config({
-	input = {
-		kb_layout = "us",
-		kb_variant = "",
-		kb_model = "",
-		kb_options = "",
-		kb_rules = "",
+  input = {
+    kb_layout = "us",
+    kb_variant = "",
+    kb_model = "",
+    kb_options = "",
+    kb_rules = "",
 
-		follow_mouse = 1,
+    follow_mouse = 1,
 
-		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+    sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
-		touchpad = {
-			natural_scroll = false,
-		},
-	},
+    touchpad = {
+      natural_scroll = false,
+    },
+  },
 })
 
 hl.gesture({
-	fingers = 3,
-	direction = "horizontal",
-	action = "workspace",
+  fingers = 3,
+  direction = "horizontal",
+  action = "workspace",
 })
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-	name = "epic-mouse-v1",
-	sensitivity = -0.5,
+  name = "epic-mouse-v1",
+  sensitivity = -0.5,
 })
 
 ---------------------
@@ -269,9 +269,9 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu .. " -show run"))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- bind = $mainMod, O, forcekillactive, # force quit active window
 hl.bind(mainMod .. " + M", function()
-	hl.timer(function()
-		hl.dispatch(hl.dsp.dpms({ action = "disable" }))
-	end, { timeout = 2000, type = "oneshot" })
+  hl.timer(function()
+    hl.dispatch(hl.dsp.dpms({ action = "disable" }))
+  end, { timeout = 2000, type = "oneshot" })
 end)
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
@@ -288,9 +288,9 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do
-	local key = i % 10 -- 10 maps to key 0
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+  local key = i % 10 -- 10 maps to key 0
+  hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Example special workspace (scratchpad)
@@ -307,24 +307,24 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(
-	"XF86AudioRaiseVolume",
-	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-	{ locked = true, repeating = true }
+  "XF86AudioRaiseVolume",
+  hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+  { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioLowerVolume",
-	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-	{ locked = true, repeating = true }
+  "XF86AudioLowerVolume",
+  hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+  { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-	{ locked = true, repeating = true }
+  "XF86AudioMute",
+  hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+  { locked = true, repeating = true }
 )
 hl.bind(
-	"XF86AudioMicMute",
-	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-	{ locked = true, repeating = true }
+  "XF86AudioMicMute",
+  hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+  { locked = true, repeating = true }
 )
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
@@ -353,27 +353,27 @@ hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m region -o $H
 -- Example window rules that are useful
 
 local suppressMaximizeRule = hl.window_rule({
-	-- Ignore maximize requests from all apps. You'll probably like this.
-	name = "suppress-maximize-events",
-	match = { class = ".*" },
+  -- Ignore maximize requests from all apps. You'll probably like this.
+  name = "suppress-maximize-events",
+  match = { class = ".*" },
 
-	suppress_event = "maximize",
+  suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-	-- Fix some dragging issues with XWayland
-	name = "fix-xwayland-drags",
-	match = {
-		class = "^$",
-		title = "^$",
-		xwayland = true,
-		float = true,
-		fullscreen = false,
-		pin = false,
-	},
+  -- Fix some dragging issues with XWayland
+  name = "fix-xwayland-drags",
+  match = {
+    class = "^$",
+    title = "^$",
+    xwayland = true,
+    float = true,
+    fullscreen = false,
+    pin = false,
+  },
 
-	no_focus = true,
+  no_focus = true,
 })
 
 -- Layer rules also return a handle.
@@ -386,11 +386,11 @@ hl.window_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
-	name = "move-hyprland-run",
-	match = { class = "hyprland-run" },
+  name = "move-hyprland-run",
+  match = { class = "hyprland-run" },
 
-	move = "20 monitor_h-120",
-	float = true,
+  move = "20 monitor_h-120",
+  float = true,
 })
 
 -- Workspace
