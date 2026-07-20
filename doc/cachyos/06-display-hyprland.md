@@ -29,5 +29,11 @@ the default display manager with hyprland on cachyos is SDDM. Arch wiki link: ht
 To enable auto login, SDDM config needs to be added/modified
 
 ```bash
+sudo vim /etc/sddm.conf
+```
 
+```bash
+[Autologin]
+User=username
+Session=hyprland
 ```
