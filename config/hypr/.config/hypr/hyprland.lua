@@ -267,6 +267,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu .. " -show run"))
 
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + O", hl.dsp.window.kill({ force = true }))
 -- bind = $mainMod, O, forcekillactive, # force quit active window
 hl.bind(mainMod .. " + M", function()
   hl.timer(function()
@@ -384,14 +385,16 @@ hl.window_rule({
 -- })
 -- overlayLayerRule:set_enabled(false)
 
--- Hyprland-run windowrule
-hl.window_rule({
-  name = "move-hyprland-run",
-  match = { class = "hyprland-run" },
+-- -- Hyprland-run windowrule
+-- hl.window_rule({
+--   name = "move-hyprland-run",
+--   match = { class = "hyprland-run" },
+--
+--   move = "20 monitor_h-120",
+--   float = true,
+-- })
 
-  move = "20 monitor_h-120",
-  float = true,
-})
+hl.window_rule({ name = "blender-tile", match = { class = "blender" }, tile = true, float = false })
 
 -- Workspace
 hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", persistent = true })

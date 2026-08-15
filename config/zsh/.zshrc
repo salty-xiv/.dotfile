@@ -80,7 +80,7 @@ alias pupdate="paru -Syu"
 # alias tb="nc termbin.com 9999"
 
 # Cleanup orphaned packages
-alias cleanup="echo 'sudo pacman -Rsn $(pacman -Qtdq)'"
+alias cleanup="echo 'sudo pacman -Rsn \$(pacman -Qtdq)'"
 
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -128,3 +128,7 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export FZF_BASE=/usr/share/fzf
+
+# add cargo to path
+export PATH="$HOME/.cargo/bin:$PATH"
+

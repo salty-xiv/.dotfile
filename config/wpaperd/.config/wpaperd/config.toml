@@ -2,7 +2,7 @@
 duration = "30m"
 mode = "fit"
 sorting = "random"
-queue-size = 100
+queue-size = 500
 
 [HDMI-A-1]
 path = "/home/salty/Pictures/ffxiv-screenshots"
@@ -12,4 +12,3 @@ path = "/home/salty/Pictures/ffxiv-screenshots"
 
 [DP-3]
 path = "/home/salty/Pictures/ffxiv-screenshots"
-
