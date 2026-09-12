@@ -33,6 +33,17 @@ used to install different versions of proton like dwproton
 paru protonplus
 ```
 
+# docker
+
+```bash
+sudo pacman -Syu docker docker-compose containerd
+```
+
+```bash
+sudo systemctl enable --now docker
+sudo usermod -aG docker $USER
+```
+
 # QEMU and VMM
 
 used to run full VM on cachyos

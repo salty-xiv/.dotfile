@@ -24,3 +24,10 @@ nice default when serious-shann is not working
 ```bash
 sudo pacman -S ttf-jetbrains-mono-nerd
 ```
+
+# google fonts
+
+```bash
+paru -S ttf-google-fonts-git
+fc-cache -f
+```

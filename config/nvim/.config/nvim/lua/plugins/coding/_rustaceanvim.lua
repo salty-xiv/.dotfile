@@ -8,4 +8,5 @@ local plug = {
   lazy = false,
 }
 
-return plug
+-- return plug
+return {}

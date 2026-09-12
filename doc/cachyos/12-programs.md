@@ -16,7 +16,7 @@ sudo pacman -S discord
 # libreoffice-still # office program
 # obs-studio-browser # streaming program
 # vlc # video player
-sudo pacman -S gimp libreoffice-still obs-studio-browser vlc
+sudo pacman -S gimp libreoffice-still obs-studio-browser vlc audacity
 ```
 
 # util

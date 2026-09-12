@@ -33,4 +33,5 @@ local plug = {
 vim.keymap.set("n", "<leader>cr", function()
   vim.cmd(":CargoRun")
 end)
-return plug
+-- return plug
+return {}

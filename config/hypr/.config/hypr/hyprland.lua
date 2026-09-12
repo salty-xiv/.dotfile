@@ -14,24 +14,6 @@
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({
-  output = "HDMI-A-1",
-  mode = "3840x2160@119.88Hz",
-  position = "0x0",
-  scale = "1",
-})
-hl.monitor({
-  output = "DP-3",
-  mode = "2560x1440@59.95Hz",
-  position = "0x-2561",
-  scale = "1",
-})
-hl.monitor({
-  output = "DP-1",
-  mode = "2560x1440@59.95Hz",
-  position = "0x2561",
-  scale = "1",
-})
 
 ---------------------
 ---- MY PROGRAMS ----
@@ -288,11 +270,13 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-for i = 1, 10 do
-  local key = i % 10 -- 10 maps to key 0
-  hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+for i = 1, 9 do
+  -- local key = i % 10 -- 10 maps to key 0
+  hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
+  hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
+hl.bind(mainMod .. " + " .. 0, hl.dsp.focus({ workspace = 10 }))
+hl.bind(mainMod .. " + SHIFT + " .. 0, hl.dsp.window.move({ workspace = 10 }))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
@@ -396,6 +380,30 @@ hl.window_rule({
 
 hl.window_rule({ name = "blender-tile", match = { class = "blender" }, tile = true, float = false })
 
+--
+-- Desktop
+--
+
+-- Monitors
+hl.monitor({
+  output = "HDMI-A-1",
+  mode = "3840x2160@119.88Hz",
+  position = "2560x0",
+  scale = "1",
+})
+hl.monitor({
+  output = "DP-3",
+  mode = "2560x1440@59.95Hz",
+  position = "0x0",
+  scale = "1",
+})
+hl.monitor({
+  output = "DP-1",
+  mode = "2560x1440@59.95Hz",
+  position = "6400x0",
+  scale = "1",
+})
+
 -- Workspace
 hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", persistent = true })
 hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1", persistent = true })
@@ -406,4 +414,4 @@ hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1", persistent = true })
 hl.workspace_rule({ workspace = "7", monitor = "HDMI-A-1", persistent = true })
 hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1", persistent = true })
 hl.workspace_rule({ workspace = "9", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "0", monitor = "HDMI-A-1", persistent = true })
+hl.workspace_rule({ workspace = "10", monitor = "DP-3", persistent = true })

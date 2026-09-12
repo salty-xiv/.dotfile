@@ -139,3 +139,11 @@ paru steam-rom-manager-bin
 # heroic-games-launcher-bin # Hero Launcher
 sudo pacman -Syu heroic-games-launcher-bin
 ```
+
+# amethyst
+
+mod manager for nexus collections
+
+```bash
+paru -S amethyst-mod-manager                                                                                                                        ✔
+```
