@@ -383,69 +383,68 @@ hl.window_rule({ name = "blender-tile", match = { class = "blender" }, tile = tr
 ---- Desktop ----
 -----------------
 
--- Monitors
-hl.monitor({
-  output = "HDMI-A-1",
-  mode = "3840x2160@119.88Hz",
-  position = "2560x0",
-  scale = "1",
-})
-hl.monitor({
-  output = "DP-3",
-  mode = "2560x1440@59.95Hz",
-  position = "0x0",
-  scale = "1",
-})
-hl.monitor({
-  output = "DP-1",
-  mode = "2560x1440@59.95Hz",
-  position = "6400x0",
-  scale = "1",
-})
-
--- Workspace
-hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "3", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "4", monitor = "DP-3", persistent = true })
-hl.workspace_rule({ workspace = "5", monitor = "DP-1", persistent = true })
-hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "7", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "9", monitor = "HDMI-A-1", persistent = true })
-hl.workspace_rule({ workspace = "10", monitor = "DP-3", persistent = true })
-
--- Window rules
-hl.window_rule({
-  match = { class = "(org.keepassxc.KeePassXC)$" },
-  workspace = "10",
-})
-
-hl.window_rule({
-  match = { class = "^(discord)$" },
-  workspace = "5",
-})
-
--- Start program
-hl.on("hyprland.start", function()
-  hl.exec_cmd("keepassxc") -- keepass
-  hl.exec_cmd("discord") -- discord
-  hl.exec_cmd("brave", { workspace = "4" }) -- brave
-end)
+-- -- Monitors
+-- hl.monitor({
+--   output = "HDMI-A-1",
+--   mode = "3840x2160@119.88Hz",
+--   position = "2560x0",
+--   scale = "1",
+-- })
+-- hl.monitor({
+--   output = "DP-3",
+--   mode = "2560x1440@59.95Hz",
+--   position = "0x0",
+--   scale = "1",
+-- })
+-- hl.monitor({
+--   output = "DP-1",
+--   mode = "2560x1440@59.95Hz",
+--   position = "6400x0",
+--   scale = "1",
+-- })
+--
+-- -- Workspace
+-- hl.workspace_rule({ workspace = "1", monitor = "HDMI-A-1", persistent = true })
+-- hl.workspace_rule({ workspace = "2", monitor = "HDMI-A-1", persistent = true })
+-- hl.workspace_rule({ workspace = "3", monitor = "HDMI-A-1", persistent = true })
+-- hl.workspace_rule({ workspace = "4", monitor = "DP-3", persistent = true })
+-- hl.workspace_rule({ workspace = "5", monitor = "DP-1", persistent = true })
+-- hl.workspace_rule({ workspace = "6", monitor = "HDMI-A-1", persistent = true })
+-- hl.workspace_rule({ workspace = "7", monitor = "HDMI-A-1", persistent = true })
+-- hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1", persistent = true })
+-- hl.workspace_rule({ workspace = "9", monitor = "HDMI-A-1", persistent = true })
+-- hl.workspace_rule({ workspace = "10", monitor = "DP-3", persistent = true })
+--
+-- -- Window rules
+-- hl.window_rule({
+--   match = { class = "(org.keepassxc.KeePassXC)$" },
+--   workspace = "10",
+-- })
+--
+-- hl.window_rule({
+--   match = { class = "^(discord)$" },
+--   workspace = "5",
+-- })
+--
+-- -- Start program
+-- hl.on("hyprland.start", function()
+--   hl.exec_cmd("keepassxc") -- keepass
+--   hl.exec_cmd("discord") -- discord
+--   hl.exec_cmd("brave", { workspace = "4" }) -- brave
+-- end)
 
 ----------------
 ---- Laptop ----
 ----------------
--- Monitors
--- hl.monitor({
---   output = "eDP-1",
---   mode = "1920x1080@60.02000Hz",
---   position = "0x0",
---   scale = "1",
--- })
+hl.monitor({
+  output = "eDP-1",
+  mode = "1920x1080@60.02000Hz",
+  position = "0x0",
+  scale = "1",
+})
 
--- hl.config({
---   input = {
---       kb_options = "caps:swapescape",
---   },
--- })
+hl.config({
+  input = {
+    kb_options = "caps:swapescape,altwin:swap_lalt_lwin",
+  },
+})

@@ -31,6 +31,7 @@ window#waybar.hidden {
 #network,
 #pulseaudio,
 #tray,
+#battery,
 #window {
   color: @foreground;
   margin-top: 6px;
@@ -150,6 +151,11 @@ window#waybar.hidden {
 }
 
 #keyboard-state {
+  color: @foreground;
+  background: @background;
+}
+
+#battery {
   color: @foreground;
   background: @background;
 }
