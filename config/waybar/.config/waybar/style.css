@@ -118,7 +118,10 @@ window#waybar.hidden {
   color: @foreground;
   background: transparent;
   padding: 4px 4px;
-  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    color 0.3s ease,
+    text-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
 #workspaces button.occupied {
@@ -130,9 +133,11 @@ window#waybar.hidden {
   text-shadow: 0 0 4px @foreground;
 }
 
-#workspaces button:hover { }
+#workspaces button:hover {
+}
 
-#workspaces button.active:hover { }
+#workspaces button.active:hover {
+}
 
 /* Modules right */
 #tray {
@@ -176,11 +181,10 @@ window#waybar.hidden {
   padding-right: 13px;
 }
 
-
 /* === Optional animation === */
 @keyframes blink {
   to {
-    background-color: #BF616A;
-    color: #B5E8E0;
+    background-color: #bf616a;
+    color: #b5e8e0;
   }
 }

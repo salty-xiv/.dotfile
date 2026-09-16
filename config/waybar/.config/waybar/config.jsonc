@@ -17,6 +17,7 @@
     "modules-right": [
         "tray",
         "keyboard-state",
+        "battery",
         "custom/notification",
         "idle_inhibitor",
         "pulseaudio",
@@ -194,6 +195,7 @@
         "tooltip-format-ethernet": "{ifname}  | {ipaddr}",
         "on-click": "nm-applet",
     },
+
     "battery": {
         "bat": "BAT0",
         "interval": 10,

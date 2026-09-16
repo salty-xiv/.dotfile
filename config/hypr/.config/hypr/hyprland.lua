@@ -1,4 +1,3 @@
--- This is an example Hyprland Lua config file.
 -- Refer to the wiki for more information.
 -- https://wiki.hypr.land/Configuring/Start/
 
@@ -46,7 +45,6 @@ end)
 -------------------------------
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
-
 hl.env("XCURSOR_SIZE", "48")
 hl.env("HYPRCURSOR_SIZE", "48")
 hl.env("HYPRSHOT_DIR", "$HOME/Pictures/Screenshots/")
@@ -214,6 +212,8 @@ hl.config({
     kb_options = "",
     kb_rules = "",
 
+    numlock_by_default = true,
+
     follow_mouse = 1,
 
     sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
@@ -271,7 +271,6 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 9 do
-  -- local key = i % 10 -- 10 maps to key 0
   hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = i }))
   hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
@@ -380,9 +379,9 @@ hl.window_rule({
 
 hl.window_rule({ name = "blender-tile", match = { class = "blender" }, tile = true, float = false })
 
---
--- Desktop
---
+-----------------
+---- Desktop ----
+-----------------
 
 -- Monitors
 hl.monitor({
@@ -415,3 +414,38 @@ hl.workspace_rule({ workspace = "7", monitor = "HDMI-A-1", persistent = true })
 hl.workspace_rule({ workspace = "8", monitor = "HDMI-A-1", persistent = true })
 hl.workspace_rule({ workspace = "9", monitor = "HDMI-A-1", persistent = true })
 hl.workspace_rule({ workspace = "10", monitor = "DP-3", persistent = true })
+
+-- Window rules
+hl.window_rule({
+  match = { class = "(org.keepassxc.KeePassXC)$" },
+  workspace = "10",
+})
+
+hl.window_rule({
+  match = { class = "^(discord)$" },
+  workspace = "5",
+})
+
+-- Start program
+hl.on("hyprland.start", function()
+  hl.exec_cmd("keepassxc") -- keepass
+  hl.exec_cmd("discord") -- discord
+  hl.exec_cmd("brave", { workspace = "4" }) -- brave
+end)
+
+----------------
+---- Laptop ----
+----------------
+-- Monitors
+-- hl.monitor({
+--   output = "eDP-1",
+--   mode = "1920x1080@60.02000Hz",
+--   position = "0x0",
+--   scale = "1",
+-- })
+
+-- hl.config({
+--   input = {
+--       kb_options = "caps:swapescape",
+--   },
+-- })
