@@ -436,15 +436,15 @@ hl.window_rule({ name = "blender-tile", match = { class = "blender" }, tile = tr
 ----------------
 ---- Laptop ----
 ----------------
-hl.monitor({
-  output = "eDP-1",
-  mode = "1920x1080@60.02000Hz",
-  position = "0x0",
-  scale = "1",
-})
-
-hl.config({
-  input = {
-    kb_options = "caps:swapescape,altwin:swap_lalt_lwin",
-  },
-})
+-- hl.monitor({
+--   output = "eDP-1",
+--   mode = "1920x1080@60.02000Hz",
+--   position = "0x0",
+--   scale = "1",
+-- })
+--
+-- hl.config({
+--   input = {
+--     kb_options = "caps:swapescape,altwin:swap_lalt_lwin",
+--   },
+-- })
