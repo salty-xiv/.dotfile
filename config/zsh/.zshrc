@@ -7,9 +7,16 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-
 # Path to your oh-my-zsh installation.
-export ZSH="/usr/share/oh-my-zsh"
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    # Commands for macOS
+    export ZSH="$HOME/.oh-my-zsh"
+    export FZF_BASE="$(brew --prefix fzf)"
+else
+    # Commands for Linux
+    export ZSH="/usr/share/oh-my-zsh"
+    export FZF_BASE="/usr/share/fzf"
+fi
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 DISABLE_MAGIC_FUNCTIONS="true"
@@ -25,44 +32,46 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-[[ -z "${plugins[*]}" ]] && plugins=(git fzf extract)
+plugins=(git fzf extract)
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 # User configuration
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Ignore commands that start with spaces and duplicates.
-
-export HISTCONTROL=ignoreboth
+# HISTCONTROL is primarily a Bash setting; Zsh uses HIST_IGNORE_SPACE
+# and HIST_IGNORE_DUPS for equivalent behavior.
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_DUPS
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Don't add certain commands to the history file.
-
 export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Use custom `less` colors for `man` pages.
-
-export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
-export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
+export LESS_TERMCAP_md="$(tput bold 2>/dev/null; tput setaf 2 2>/dev/null)"
+export LESS_TERMCAP_me="$(tput sgr0 2>/dev/null)"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history.
-
-export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+# PROMPT_COMMAND is a Bash variable; Zsh uses the following options instead.
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
-#alias open="xdg-open"
+# alias open="xdg-open"
 # alias make="make -j`nproc`"
 # alias ninja="ninja -j`nproc`"
 # alias n="ninja"
@@ -70,8 +79,6 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # alias rmpkg="sudo pacman -Rsn"
 # alias cleanch="sudo pacman -Scc"
 # alias fixpacman="sudo rm /var/lib/pacman/db.lck"
-alias update="sudo pacman -Syu"
-alias pupdate="paru -Syu"
 
 # Help people new to Arch
 # alias apt="man pacman"
@@ -79,18 +86,29 @@ alias pupdate="paru -Syu"
 # alias please="sudo"
 # alias tb="nc termbin.com 9999"
 
-# Cleanup orphaned packages
-alias cleanup="echo 'sudo pacman -Rsn \$(pacman -Qtdq)'"
-
-# Get the error messages from journalctl
-alias jctl="journalctl -p 3 -xb"
-
-# Recent installed packages
-alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    # macOS-specific aliases
+    ## shell
+    alias ll="gls -alF --color=auto --group-directories-first"
+else
+    # CachyOS / Arch Linux-specific aliases
+    alias update="sudo pacman -Syu"
+    alias pupdate="paru -Syu"
+    # Cleanup orphaned packages
+    alias cleanup="echo 'sudo pacman -Rsn \$(pacman -Qtdq)'"
+    # Get the error messages from journalctl
+    alias jctl="journalctl -p 3 -xb"
+    # Recent installed packages
+    alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+    alias mudfish="sudo -E /opt/mudfish/6.3.3/bin/mudrun"
+    ## shell
+    alias ll="ls -alF --color=auto --group-directories-first"
+    # config
+    alias passsync="bash ~/.local/bin/passwordsync.sh"
+fi
 
 ## shell
 alias ..="cd .."
-alias ll="ls -alF --color=auto --group-directories-first"
 
 ## nvim
 alias v="nvim ."
@@ -106,29 +124,30 @@ alias gds="git diff --staged"
 alias t="tmux"
 alias ta="tmux attach"
 
-# config
-alias passsync="bash ~/.local/bin/passwordsync.sh"
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# mudfish
-alias mudfish="sudo -E /opt/mudfish/6.3.3/bin/mudrun"
-
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-# Fish-like syntax highlighting and autosuggestions
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Use history substring search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-# pkgfile "command not found" handler
-source /usr/share/doc/pkgfile/command-not-found.zsh
+# Powerlevel10k and Zsh integrations
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    # macOS: Homebrew-installed packages
+    source "$(brew --prefix powerlevel10k)/share/powerlevel10k/powerlevel10k.zsh-theme"
+    source "$(brew --prefix zsh-autosuggestions)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    source "$(brew --prefix zsh-history-substring-search)/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+    source "$(brew --prefix zsh-syntax-highlighting)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+else
+    # CachyOS / Arch Linux
+    source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+    # Fish-like syntax highlighting and autosuggestions
+    source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # Use history substring search
+    source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+    # pkgfile "command not found" handler
+    source /usr/share/doc/pkgfile/command-not-found.zsh
+    # Syntax highlighting should load after other plugins and widgets
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export FZF_BASE=/usr/share/fzf
-
 # add cargo to path
 export PATH="$HOME/.cargo/bin:$PATH"
-
